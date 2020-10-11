@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "build": "webpack -p && mv build docs",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
