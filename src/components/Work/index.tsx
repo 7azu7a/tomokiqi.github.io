@@ -36,7 +36,7 @@ const Work: React.FC = () => {
   const WorkContent: React.FC<WorkContentProps> = (props) => {
     const { name, description, tags } = props.work;
     return (
-      <div className="max-w-md rounded shadow-md hover:rotate-3 transform">
+      <div className="max-w-md rounded shadow-md">
         <img className="w-full" src={DummyPhoto} alt="Work item" />
         <div className="px-8 py-4">
           {tags.map((tag, index) => {
@@ -58,7 +58,7 @@ const Work: React.FC = () => {
     );
   };
   return (
-    <div id="work" className="flex pt-32 space-x-8 > *">
+    <div id="work" className="flex pt-32 space-x-4 > *">
       {works.map((work: Work, index: number) => {
         return <WorkContent work={work} key={index} />;
       })}
