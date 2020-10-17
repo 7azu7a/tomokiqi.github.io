@@ -1,7 +1,8 @@
 import React from "react";
+import Root from "./pages/Root";
 
 function App() {
-  return <div className="font-bold">Hello React!</div>;
+  return <Root />;
 }
 
 export default App;

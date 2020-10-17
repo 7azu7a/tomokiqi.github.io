@@ -20,10 +20,18 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: "url-loader",
+      },
     ],
   },
   resolve: {
     extensions: [".ts", ".js", ".tsx", ".jsx"],
+    modules: [
+      path.resolve(__dirname, "src"),
+      path.resolve(__dirname, "node_modules"),
+    ],
   },
   devServer: {
     contentBase: "./build",

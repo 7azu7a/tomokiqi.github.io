@@ -1,14 +1,8 @@
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-    // defaultLineHeights: true,
-    // standardFontWeights: true
-  },
-  purge: [],
+  purge: ["./components/**/*.tsx", "./pages/**/*.tsx"],
   theme: {
-    extend: {}
+    extend: {},
   },
   variants: {},
-  plugins: []
-}
+  plugins: [],
+};
