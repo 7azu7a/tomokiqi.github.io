@@ -3,7 +3,6 @@ import Header from "../../components/Header";
 import Intro from "../../components/Intro";
 import Work from "../../components/Work";
 import About from "../../components/About";
-import History from "../../components/History";
 import Footer from "../../components/Footer";
 
 const Root = () => {
