@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import DummyPhoto from "./480x320.png";
+import WorkDetail from "../WorkDetail";
 
-interface Work {
+export interface Work {
   name: string;
   description: string;
   tags: string[];
@@ -34,11 +35,33 @@ const Work: React.FC = () => {
   ];
 
   const WorkContent: React.FC<WorkContentProps> = (props) => {
-    const { name, description, tags } = props.work;
+    // const { name, description, tags } = props.work;
+    const [isActive, setIsActive] = useState(false);
+    const activateWorkDetail = () => {
+      setIsActive(true);
+    };
     return (
       <div className="max-w-md rounded shadow-md">
-        <img className="w-full" src={DummyPhoto} alt="Work item" />
-        <div className="px-8 py-4">
+        <img
+          className="w-full cursor-pointer"
+          src={DummyPhoto}
+          alt="Work item"
+          onClick={() => {
+            activateWorkDetail();
+          }}
+        />
+        {(() => {
+          if (isActive) {
+            return (
+              <WorkDetail
+                work={props.work}
+                thumbnail={DummyPhoto}
+                setIsActive={setIsActive}
+              />
+            );
+          }
+        })()}
+        {/* <div className="px-8 py-4">
           {tags.map((tag, index) => {
             return (
               <span
@@ -53,7 +76,7 @@ const Work: React.FC = () => {
         <div className="px-8 pb-4">
           <div className="font-bold text-xl mb-2">{name}</div>
           <p>{description}</p>
-        </div>
+        </div> */}
       </div>
     );
   };
