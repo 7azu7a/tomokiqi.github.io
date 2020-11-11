@@ -1,8 +1,11 @@
 import React from "react";
-import Root from "./pages/Root";
+import { useRoutes } from "react-router-dom";
+import rootPath from "./routes";
 
 function App() {
-  return <Root />;
+  const elements = useRoutes(rootPath);
+
+  return <React.Fragment>{elements}</React.Fragment>;
 }
 
 export default App;
