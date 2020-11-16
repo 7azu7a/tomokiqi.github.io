@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../components/Header";
-import Top from "../components/Top";
+import Layout from "layouts";
+import TopPage from "components/pages/TopPage";
 
-const rootPath = [
+const routes = [
   {
     path: "/",
-    element: <Header />,
-    children: [{ path: "/", element: <Top /> }],
+    element: <Layout />,
+    children: [{ path: "/", element: <TopPage /> }],
   },
 ];
 
-export default rootPath;
+export default routes;
