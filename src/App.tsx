@@ -1,9 +1,9 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
-import rootPath from "./routes";
+import routes from "./routes";
 
 function App() {
-  const elements = useRoutes(rootPath);
+  const elements = useRoutes(routes);
 
   return <React.Fragment>{elements}</React.Fragment>;
 }
