@@ -1,7 +1,12 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, theme as chakraTheme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 
-const fonts = { mono: `'Menlo', monospace` };
+const fonts = {
+  ...chakraTheme.fonts,
+  heading:
+    "Georgia, 游明朝, Yu Mincho, YuMincho, Hiragino Mincho, ProN, HGS明朝E, メイリオ, Meiryo, serif",
+  body: "Georgia, 游明朝, Yu Mincho, YuMincho, Hiragino Mincho, ProN, HGS明朝E, メイリオ, Meiryo, serif",
+};
 
 const breakpoints = createBreakpoints({
   sm: "40em",
