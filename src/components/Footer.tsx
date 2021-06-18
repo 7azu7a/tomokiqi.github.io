@@ -1,5 +1,7 @@
-import { Flex, FlexProps } from '@chakra-ui/react'
+import { Flex } from "@chakra-ui/react";
 
-export const Footer = (props: FlexProps) => (
-  <Flex as="footer" py="8rem" {...props} />
-)
+export const Footer = () => (
+  <Flex justifyContent="center" alignItems="center" my="4rem">
+    &copy; Tomoki Saijo
+  </Flex>
+);
