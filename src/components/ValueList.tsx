@@ -1,7 +1,7 @@
 import { Flex, Box, Heading, Text } from "@chakra-ui/react";
 
 export const ValueList = () => {
-  const valuesList = ["自由", "情熱", "専門性", "貢献", "合理的"];
+  const valuesList = ["最上志向", "学習欲", "慎重さ", "公平性", "親密性"];
 
   const ValueItem: React.VFC<{ value: string }> = ({ value }) => (
     <Flex
@@ -20,11 +20,11 @@ export const ValueList = () => {
   );
   return (
     <Flex justifyContent="center" alignItems="center" mt="4rem">
-      <Box>
+      <Box mr="1rem">
         <Heading fontSize="1rem" mb="0.25rem">
-          私が大切にしている価値観　
+          私の強み
         </Heading>
-        <Text fontSize="0.707">in Webox Value Cards</Text>
+        <Text fontSize="0.707">via CliftonStrengths</Text>
       </Box>
       {valuesList.map((value) => (
         <ValueItem value={value} key={value} />
