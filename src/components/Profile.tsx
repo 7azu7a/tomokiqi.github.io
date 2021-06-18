@@ -24,10 +24,14 @@ export const Profile = () => {
           </Text>
           <HStack spacing={2}>
             <Link href="https://twitter.com/tomokiqi">
-              <FaTwitter color="white" />
+              <a>
+                <FaTwitter color="white" />
+              </a>
             </Link>
             <Link href="https://github.com/tomokiqi">
-              <FaGithub color="white" />
+              <a>
+                <FaGithub color="white" />
+              </a>
             </Link>
           </HStack>
         </Box>
