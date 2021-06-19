@@ -17,9 +17,9 @@ export const BlogParts: React.VFC<Props> = ({ blog }) => {
   return (
     <Flex
       direction="column"
-      bgImg="/washi.jpeg"
-      bgSize="100%"
-      bgRepeat="no-repeat"
+      width="100%"
+      height="100%"
+      bgColor="white"
       color="black"
       onClick={pushBlogPage}
       cursor="pointer"
@@ -36,7 +36,7 @@ export const BlogParts: React.VFC<Props> = ({ blog }) => {
         <Heading fontSize="1rem" isTruncated mb="0.5rem">
           {blog.title}
         </Heading>
-        <Text fontSize="0.707rem">{`最終更新：${dayjs(blog.updatedAt).format(
+        <Text fontSize="0.75rem">{`最終更新：${dayjs(blog.updatedAt).format(
           "YYYY/MM/DD"
         )}`}</Text>
       </Flex>
