@@ -1,24 +1,31 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FaTwitter, FaGithub } from "react-icons/fa";
-import { Flex, HStack, Box, Heading, Text, VStack } from "@chakra-ui/react";
+import {
+  Flex,
+  HStack,
+  Box,
+  Heading,
+  Text,
+  VStack,
+  Image as ChakraImage,
+} from "@chakra-ui/react";
 
 export const Profile = () => {
   return (
     <Flex justifyContent="center" alignItems="center">
-      <Image
-        alt="my photo"
+      <ChakraImage
+        alt="author photo"
         src={"/me.jpg"}
-        width="150%"
-        height="150%"
+        width="8rem"
+        height="8rem"
         objectFit="cover"
       />
       <VStack alignItems="flex-start" mx="2rem">
         <Box mb="1rem">
-          <Heading fontSize="1.5rem" mb="0.5em">
-            Tomoki Saijo
+          <Heading fontSize="1rem" mb="0.5em">
+            西條 友喜
           </Heading>
-          <Text>
+          <Text fontSize="0.75rem">
             通信キャリアにて自社サービスのフロントエンド開発や政府研究開発のシステム設計に従事。
             <br />
             Scrum Alliance®︎ 認定スクラムマスター。趣味はイタリアン料理など。
