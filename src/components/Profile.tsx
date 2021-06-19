@@ -6,16 +6,22 @@ import { Flex, HStack, Box, Heading, Text, VStack } from "@chakra-ui/react";
 export const Profile = () => {
   return (
     <Flex justifyContent="center" alignItems="center">
-      <Image alt="my photo" src={"/me.jpg"} width="150%" height="150%" />
+      <Image
+        alt="my photo"
+        src={"/me.jpg"}
+        width="150%"
+        height="150%"
+        objectFit="cover"
+      />
       <VStack alignItems="flex-start" mx="2rem">
         <Box mb="1rem">
           <Heading fontSize="1.5rem" mb="0.5em">
-            西條 友喜
+            Tomoki Saijo
           </Heading>
           <Text>
-            通信事業者にて新規事業サービスのフロントエンド開発や政府研究開発のシステム設計に従事。
+            通信キャリアにて自社サービスのフロントエンド開発や政府研究開発のシステム設計に従事。
             <br />
-            Scrum Alliance®︎ 認定スクラムマスター。
+            Scrum Alliance®︎ 認定スクラムマスター。趣味はイタリアン料理など。
           </Text>
         </Box>
         <Box>
