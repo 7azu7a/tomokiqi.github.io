@@ -1,24 +1,38 @@
-import { Cover } from "components/Cover";
+import { InferGetStaticPropsType } from "next";
+import { useRouter } from "next/router";
 import { Container } from "components/Container";
-import { Footer } from "components/Footer";
+import { Cover } from "components/Cover";
 import { BlogList } from "components/BlogList";
-import { ValueList } from "components/ValueList";
 import { Profile } from "components/Profile";
+import { ValueList } from "components/ValueList";
+import { Footer } from "components/Footer";
+import { ButtonParts } from "components/parts/ButtonParts";
 import { IBlogList } from "interfaces/blog";
+import { VStack } from "@chakra-ui/react";
+import { Main } from "components/Main";
 
-type Props = {
-  blogs: IBlogList;
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+
+const Index: React.VFC<Props> = ({ blogList }) => {
+  const router = useRouter();
+  const pushBlogPage = () =>
+    router.push("/blogs", undefined, { shallow: true });
+
+  return (
+    <Container>
+      <Cover />
+      <Main>
+        <VStack alignItems="center" width="100%" spacing="2rem">
+          <BlogList blogList={blogList} />
+          <ButtonParts label={"全ての記事　＞"} callback={pushBlogPage} />
+        </VStack>
+        <Profile />
+        <ValueList />
+        <Footer />
+      </Main>
+    </Container>
+  );
 };
-
-const Index: React.VFC<Props> = ({ blogs }) => (
-  <Container>
-    <Cover />
-    <BlogList blogs={blogs.contents} />
-    <Profile />
-    <ValueList />
-    <Footer />
-  </Container>
-);
 
 export const getStaticProps = async () => {
   const apiKey = process.env.API_KEY;
@@ -34,17 +48,14 @@ export const getStaticProps = async () => {
     headers: { "x-api-key": process.env.API_KEY ?? "" },
   };
 
-  try {
-    const res = await fetch(endpoint, key);
-    const data = (await res.json()) as Promise<IBlogList>;
-    return {
-      props: {
-        blogs: data,
-      },
-    };
-  } catch (e) {
-    throw new Error("Failed to fetch data");
-  }
+  // TODO: 正しくQuery Paramの設定
+  const res = await fetch(`${endpoint}?limit=4`, key);
+  const data = await res.json();
+  return {
+    props: {
+      blogList: data as IBlogList,
+    },
+  };
 };
 
 export default Index;

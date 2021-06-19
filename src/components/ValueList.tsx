@@ -19,7 +19,7 @@ export const ValueList = () => {
     </Flex>
   );
   return (
-    <Flex justifyContent="center" alignItems="center" mt="4rem">
+    <Flex justifyContent="center" alignItems="center">
       <Box mr="1rem">
         <Heading fontSize="1rem" mb="0.25rem">
           私の強み

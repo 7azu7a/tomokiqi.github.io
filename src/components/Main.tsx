@@ -1,18 +1,19 @@
-import { Flex } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 
 type Props = {
   children: React.ReactNode;
 };
 
-export const Container: React.VFC<Props> = ({ children }) => {
+export const Main: React.VFC<Props> = ({ children }) => {
   return (
-    <Flex
+    <VStack
       width="100%"
-      direction="column"
       justifyContent="center"
       alignItems="center"
+      spacing="8rem"
+      p="2rem"
     >
       {children}
-    </Flex>
+    </VStack>
   );
 };

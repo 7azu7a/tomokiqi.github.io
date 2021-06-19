@@ -5,7 +5,7 @@ export const Cover = () => (
   <Flex
     justifyContent="center"
     alignItems="center"
-    width="100%"
+    width="100vw"
     height="100vh"
     color="black"
     bgAttachment="fixed"
@@ -18,7 +18,7 @@ export const Cover = () => (
       writing-mode: vertical-rl;
     `}
   >
-    <Flex direction="column">
+    <Flex direction="column" userSelect="none">
       <Heading ml="2rem" fontSize="1.414rem">
         祇園精舎
       </Heading>
