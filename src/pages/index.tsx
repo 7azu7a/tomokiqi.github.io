@@ -15,7 +15,7 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Index: React.VFC<Props> = ({ blogList }) => {
   const router = useRouter();
-  const pushBlogPage = () =>
+  const pushBlogListPage = () =>
     router.push("/blogs", undefined, { shallow: true });
 
   return (
@@ -24,7 +24,7 @@ const Index: React.VFC<Props> = ({ blogList }) => {
       <Main>
         <VStack alignItems="center" width="100%" spacing="2rem">
           <BlogList blogList={blogList} />
-          <ButtonParts label={"全ての記事　＞"} callback={pushBlogPage} />
+          <ButtonParts label={"全ての記事　＞"} callback={pushBlogListPage} />
         </VStack>
         <Profile />
         <ValueList />
@@ -51,6 +51,7 @@ export const getStaticProps = async () => {
   // TODO: 正しくQuery Paramの設定
   const res = await fetch(`${endpoint}?limit=4`, key);
   const data = await res.json();
+
   return {
     props: {
       blogList: data as IBlogList,
