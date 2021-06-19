@@ -24,7 +24,7 @@ export const ValueList = () => {
         <Heading fontSize="1rem" mb="0.25rem">
           私の強み
         </Heading>
-        <Text fontSize="0.707">via CliftonStrengths</Text>
+        <Text fontSize="0.75">via CliftonStrengths</Text>
       </Box>
       {valuesList.map((value) => (
         <ValueItem value={value} key={value} />

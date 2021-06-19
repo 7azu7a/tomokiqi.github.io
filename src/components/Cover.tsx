@@ -8,21 +8,20 @@ export const Cover = () => (
     width="100vw"
     height="100vh"
     color="black"
-    bgAttachment="fixed"
     bgRepeat="none"
     bgSize="100%"
     bgBlendMode="lighten"
     bgColor="whiteAlpha.500"
-    bgImg="/cover.jpg"
+    bgImg="/washi.jpg"
     css={css`
       writing-mode: vertical-rl;
     `}
   >
     <Flex direction="column" userSelect="none">
-      <Heading ml="2rem" fontSize="1.414rem">
+      <Heading ml="4rem" fontSize="1.5rem">
         祇園精舎
       </Heading>
-      <Text>
+      <Text lineHeight="2rem">
         祇園精舍の鐘の声、諸行無常の響きあり。
         <br />
         娑羅双樹の花の色、盛者必衰の理をあらはす。
