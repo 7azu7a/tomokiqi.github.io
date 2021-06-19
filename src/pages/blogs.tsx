@@ -48,7 +48,7 @@ export const getStaticProps = async () => {
     headers: { "x-api-key": process.env.API_KEY ?? "" },
   };
 
-  const res = await fetch(`${endpoint}`, key);
+  const res = await fetch(endpoint, key);
   const data = await res.json();
   return {
     props: {
