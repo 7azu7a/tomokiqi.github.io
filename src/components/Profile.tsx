@@ -9,7 +9,7 @@ export const Profile = () => {
       <Image alt="my photo" src={"/me.jpg"} width="150%" height="150%" />
       <VStack alignItems="flex-start" mx="2rem">
         <Box mb="1rem">
-          <Heading fontSize="1.414rem" mb="0.25em">
+          <Heading fontSize="1.5rem" mb="0.5em">
             西條 友喜
           </Heading>
           <Text>
@@ -19,10 +19,11 @@ export const Profile = () => {
           </Text>
         </Box>
         <Box>
-          <Text mb="0.25em">
-            React ｜ Next ｜ Express ｜ Akka ｜ GitHub ｜ Scrum Master
+          <Text mb="0.75em" fontSize="0.75rem">
+            TypeScript ｜ React ｜ Next ｜ Express ｜ Scala ｜ Akka ｜ GitHub ｜
+            Scrum Master
           </Text>
-          <HStack spacing={2}>
+          <HStack spacing="0.75rem">
             <Link href="https://twitter.com/tomokiqi">
               <a>
                 <FaTwitter color="white" />
