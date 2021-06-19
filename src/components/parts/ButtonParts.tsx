@@ -7,16 +7,15 @@ type ButtonProps = {
 
 export const ButtonParts: React.VFC<ButtonProps> = ({ label, callback }) => (
   <Button
-    borderWidth="2px"
-    borderStyle="solid"
-    borderColor="white"
+    bgColor="white"
+    color="black"
     borderRadius="0"
     width="16rem"
     onClick={callback}
-    bgColor="transparent"
     _active={{
-      bgColor: "white",
-      color: "black",
+      borderWidth: "2px",
+      borderStyle: "solid",
+      borderColor: "white",
     }}
   >
     {label}
