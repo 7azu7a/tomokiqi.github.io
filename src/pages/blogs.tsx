@@ -1,75 +1,36 @@
-import { useCallback, useState, useRef, RefObject } from "react";
-import {
-  Flex,
-  InputGroup,
-  InputLeftElement,
-  Input,
-  Box,
-  VStack,
-} from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
-import { useRouter } from "next/router";
-import { ButtonParts } from "components/parts/ButtonParts";
+import { useState, useEffect } from "react";
+import { VStack } from "@chakra-ui/react";
+
 import { IBlogList } from "interfaces/blog";
 import { BlogList } from "components/BlogList";
 import { InferGetStaticPropsType } from "next";
 import { Container } from "components/Container";
+import { BlogPageHeader } from "components/BlogPageHeader";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Blogs: React.VFC<Props> = ({ blogList }) => {
-  const router = useRouter();
-  const inputEl = useRef() as RefObject<HTMLInputElement>;
+  const [searchWord, setSearchWord] = useState("");
+  const [displayBlogList, setDisplayBlogList] = useState(blogList);
 
-  const BlogHeader = () => {
-    const routerBack = useCallback(() => router.back(), []);
-
-    const [displayBlogList, setDisplayBlogList] = useState<IBlogList>(blogList);
-
-    const onClickSearchButton = () => {
-      setDisplayBlogList({
-        ...displayBlogList,
-        contents: blogList.contents.filter(
-          (blog) =>
-            blog.title.toLowerCase().indexOf(inputEl.current?.value || "") > -1
-        ),
-      });
-    };
-
-    return (
-      <Container>
-        <VStack p="2rem" width="100%" spacing="2rem">
-          <Flex width="100%">
-            <Box width="16rem" mr="2rem">
-              <ButtonParts label={"＜　戻る"} callback={routerBack} />
-            </Box>
-            <InputGroup>
-              <InputLeftElement
-                pointerEvents="none"
-                children={<SearchIcon color="white" />}
-              />
-              <Input
-                borderWidth="2px"
-                borderStyle="solid"
-                borderColor="white"
-                borderRadius="none"
-                ref={inputEl}
-              />
-            </InputGroup>
-            <Box width="16rem" ml="2rem">
-              <ButtonParts label={"検索"} callback={onClickSearchButton} />
-            </Box>
-          </Flex>
-          <BlogList blogList={displayBlogList} />
-        </VStack>
-      </Container>
-    );
-  };
+  useEffect(() => {
+    setDisplayBlogList({
+      ...blogList,
+      contents: blogList.contents.filter(
+        (blog) =>
+          blog.title.toLowerCase().indexOf(searchWord.toLowerCase()) >= 0 ||
+          blog.body.toLowerCase().indexOf(searchWord.toLowerCase()) >= 0
+      ),
+    });
+  }, [searchWord]);
 
   return (
-    <Flex direction="column">
-      <BlogHeader />
-    </Flex>
+    <Container>
+      <VStack p="2rem" width="100%" spacing="2rem">
+        <BlogPageHeader setSearchWord={setSearchWord} />
+        <BlogList blogList={displayBlogList} />
+      </VStack>
+    </Container>
   );
 };
 
