@@ -10,7 +10,7 @@ export const Main: React.VFC<Props> = ({ children }) => {
       width="100%"
       justifyContent="center"
       alignItems="center"
-      spacing="8em"
+      spacing="4em"
       p="2em"
     >
       {children}

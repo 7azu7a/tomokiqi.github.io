@@ -1,4 +1,4 @@
-import { Flex, Grid } from "@chakra-ui/react";
+import { Grid } from "@chakra-ui/react";
 import { BlogParts } from "./parts/BlogParts";
 import { IBlogList } from "interfaces/blog";
 
@@ -8,12 +8,14 @@ type Props = {
 
 export const BlogList: React.VFC<Props> = ({ blogList }) => {
   return (
-    <Flex width="100%" direction="column">
-      <Grid templateColumns="repeat(4, 1fr)" gap="1em" width="100%">
-        {blogList.contents.map((blog) => (
-          <BlogParts blog={blog} key={blog.id} />
-        ))}
-      </Grid>
-    </Flex>
+    <Grid
+      templateColumns="repeat(auto-fit, minmax(16em, 1fr))"
+      gap="2em"
+      width="100%"
+    >
+      {blogList.contents.map((blog) => (
+        <BlogParts blog={blog} key={blog.id} />
+      ))}
+    </Grid>
   );
 };

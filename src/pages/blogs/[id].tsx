@@ -15,7 +15,7 @@ const Blog: React.VFC<Props> = ({ blog }) => {
   return (
     <Container>
       <VStack
-        width="70%"
+        width="100%"
         spacing="2em"
         justifyContent="center"
         alignItems="flex-start"

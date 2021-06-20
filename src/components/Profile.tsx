@@ -12,17 +12,27 @@ import {
 
 export const Profile = () => {
   return (
-    <Flex justifyContent="center" alignItems="center">
+    <Flex
+      justifyContent="center"
+      alignItems="center"
+      direction={{ base: "column", sm: "row" }}
+    >
       <ChakraImage
         alt="author photo"
-        src={"/me.jpg"}
+        src={"/me.png"}
         width="8em"
         height="8em"
+        mx="2em"
+        my="1em"
         objectFit="cover"
       />
-      <VStack alignItems="flex-start" mx="2em">
+      <VStack alignItems="flex-start">
         <Box mb="1em">
-          <Heading fontSize="1em" mb="0.5em">
+          <Heading
+            fontSize="1em"
+            mb="0.5em"
+            textAlign={{ base: "center", sm: "start" }}
+          >
             西條 友喜
           </Heading>
           <Text fontSize="0.75em">

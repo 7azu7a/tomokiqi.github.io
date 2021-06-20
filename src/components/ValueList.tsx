@@ -1,4 +1,4 @@
-import { Flex, Box, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 
 export const ValueList = () => {
   const valuesList = ["最上志向", "学習欲", "慎重さ", "公平性", "親密性"];
@@ -13,19 +13,24 @@ export const ValueList = () => {
       borderStyle="solid"
       borderColor="white"
       borderRadius="50%"
-      mx="1em"
+      m="1em"
     >
       <Text fontWeight="bold">{value}</Text>
     </Flex>
   );
   return (
-    <Flex justifyContent="center" alignItems="center">
-      <Box mr="1em">
+    <Flex
+      justifyContent="center"
+      alignItems="center"
+      direction={{ base: "column", sm: "row" }}
+      width="100%"
+    >
+      <Flex m="1em" alignItems="center" direction="column">
         <Heading fontSize="1em" mb="0.25em">
           私の強み
         </Heading>
         <Text fontSize="0.75">via CliftonStrengths</Text>
-      </Box>
+      </Flex>
       {valuesList.map((value) => (
         <ValueItem value={value} key={value} />
       ))}

@@ -22,8 +22,8 @@ export const BlogPageHeader: React.VFC<Props> = ({ setSearchWord }) => {
     setSearchWord(e.target.value);
 
   return (
-    <Flex width="100%">
-      <Box width="16em" mr="2em">
+    <Flex width="100%" direction={{ base: "column", sm: "row" }}>
+      <Box width="100%" mr="2em" mb="2em">
         <ButtonParts label={"＜　戻る"} callback={routerBack} />
       </Box>
       <InputGroup>

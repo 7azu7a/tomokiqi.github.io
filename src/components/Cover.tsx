@@ -12,13 +12,13 @@ export const Cover = () => (
     bgSize="100%"
     bgBlendMode="lighten"
     bgColor="whiteAlpha.500"
-    bgImg="/washi.jpg"
+    bgImg="/paper.png"
     css={css`
       writing-mode: vertical-rl;
     `}
   >
     <Flex direction="column" userSelect="none">
-      <Heading ml="4em" fontSize="1.5em">
+      <Heading ml="2em" fontSize="1.5em">
         祇園精舎
       </Heading>
       <Text lineHeight="2em">
