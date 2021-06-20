@@ -26,7 +26,7 @@ export const Profile = () => {
         my="1em"
         objectFit="cover"
       />
-      <VStack alignItems="flex-start">
+      <VStack alignItems="flex-start" textAlign="justify">
         <Box mb="1em">
           <Heading
             fontSize="1em"
@@ -35,14 +35,14 @@ export const Profile = () => {
           >
             西條 友喜
           </Heading>
-          <Text fontSize="0.75em" textAlign="justify">
+          <Text fontSize="0.75em">
             通信キャリアにて自社サービスのフロントエンド開発や政府研究開発のシステム設計に従事。
             <br />
             Scrum Alliance®︎ 認定スクラムマスター。趣味はイタリアン料理など。
           </Text>
         </Box>
         <Box>
-          <Text mb="0.75em" fontSize="0.75em" textAlign="justify">
+          <Text mb="0.75em" fontSize="0.75em">
             TypeScript ｜ React ｜ Next ｜ Express ｜ Scala ｜ Akka ｜ GitHub ｜
             Scrum Master
           </Text>
