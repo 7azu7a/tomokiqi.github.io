@@ -18,7 +18,7 @@ export const BlogParts: React.VFC<Props> = ({ blog }) => {
     <Flex
       direction="column"
       width="100%"
-      height="100%"
+      height="16em"
       bgColor="white"
       color="black"
       onClick={pushBlogPage}

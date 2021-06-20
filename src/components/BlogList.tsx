@@ -9,7 +9,7 @@ type Props = {
 export const BlogList: React.VFC<Props> = ({ blogList }) => {
   return (
     <Grid
-      templateColumns="repeat(auto-fit, minmax(16em, 1fr))"
+      templateColumns="repeat(auto-fill, minmax(16em, 1fr))"
       gap="2em"
       width="100%"
     >
