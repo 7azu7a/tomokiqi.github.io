@@ -45,8 +45,13 @@ export const BlogParts: React.VFC<Props> = ({ blog }) => {
           }}
         />
       </Skeleton>
-      <Flex direction="column" height="30%" justifyContent="center" p="1em">
-        <Heading fontSize="1em" isTruncated mb="0.5em">
+      <Flex
+        direction="column"
+        height="30%"
+        justifyContent="space-between"
+        p="1em"
+      >
+        <Heading fontSize="1em" isTruncated>
           {blog.title}
         </Heading>
         <Text fontSize="0.75em">
