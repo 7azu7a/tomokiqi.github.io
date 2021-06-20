@@ -5,6 +5,8 @@ export default class Document extends NextDocument {
     return (
       <Html>
         <Head />
+        <title>Tomokiqi's Portfolio</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <body>
           <Main />
           <NextScript />
