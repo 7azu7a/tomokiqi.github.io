@@ -35,7 +35,7 @@ export const Profile = () => {
           >
             西條 友喜
           </Heading>
-          <Text fontSize="0.75em">
+          <Text fontSize="0.75em" textAlign="justify">
             通信キャリアにて自社サービスのフロントエンド開発や政府研究開発のシステム設計に従事。
             <br />
             Scrum Alliance®︎ 認定スクラムマスター。趣味はイタリアン料理など。
