@@ -23,7 +23,7 @@ const Blog: React.VFC<Props> = ({ blog }) => {
       >
         <ButtonParts label={"＜　戻る"} callback={routerBack} />
         <ChakraImage
-          src={blog.cover.url}
+          src={`${blog.cover.url}?dpr=2&w=1024`}
           alt="cover image"
           width="100%"
           height="30vh"

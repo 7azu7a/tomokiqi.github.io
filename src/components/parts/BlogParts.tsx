@@ -26,7 +26,7 @@ export const BlogParts: React.VFC<Props> = ({ blog }) => {
       key={blog.id}
     >
       <ChakraImage
-        src={blog.cover.url}
+        src={`${blog.cover.url}?dpr=2&w=256`}
         alt="cover image"
         width="100%"
         height="70%"
