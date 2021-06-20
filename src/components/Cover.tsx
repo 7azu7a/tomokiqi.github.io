@@ -17,7 +17,7 @@ export const Cover = () => (
       writing-mode: vertical-rl;
     `}
   >
-    <Flex direction="column" userSelect="none">
+    <Flex direction="column" userSelect="none" letterSpacing="0.25em">
       <Heading ml="2em" fontSize="1.5em">
         祇園精舎
       </Heading>
