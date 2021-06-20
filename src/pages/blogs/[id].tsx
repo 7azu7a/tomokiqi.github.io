@@ -16,10 +16,10 @@ const Blog: React.VFC<Props> = ({ blog }) => {
     <Container>
       <VStack
         width="70%"
-        spacing="2rem"
+        spacing="2em"
         justifyContent="center"
         alignItems="flex-start"
-        p="2rem"
+        p="2em"
       >
         <ButtonParts label={"＜　戻る"} callback={routerBack} />
         <ChakraImage
@@ -29,7 +29,7 @@ const Blog: React.VFC<Props> = ({ blog }) => {
           height="30vh"
           objectFit="cover"
         />
-        <Heading fontSize="1.414rem">{blog.title}</Heading>
+        <Heading fontSize="1.5em">{blog.title}</Heading>
         <Flex width="100%">
           <div
             dangerouslySetInnerHTML={{

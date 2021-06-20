@@ -16,27 +16,27 @@ export const Profile = () => {
       <ChakraImage
         alt="author photo"
         src={"/me.jpg"}
-        width="8rem"
-        height="8rem"
+        width="8em"
+        height="8em"
         objectFit="cover"
       />
-      <VStack alignItems="flex-start" mx="2rem">
-        <Box mb="1rem">
-          <Heading fontSize="1rem" mb="0.5em">
+      <VStack alignItems="flex-start" mx="2em">
+        <Box mb="1em">
+          <Heading fontSize="1em" mb="0.5em">
             西條 友喜
           </Heading>
-          <Text fontSize="0.75rem">
+          <Text fontSize="0.75em">
             通信キャリアにて自社サービスのフロントエンド開発や政府研究開発のシステム設計に従事。
             <br />
             Scrum Alliance®︎ 認定スクラムマスター。趣味はイタリアン料理など。
           </Text>
         </Box>
         <Box>
-          <Text mb="0.75em" fontSize="0.75rem">
+          <Text mb="0.75em" fontSize="0.75em">
             TypeScript ｜ React ｜ Next ｜ Express ｜ Scala ｜ Akka ｜ GitHub ｜
             Scrum Master
           </Text>
-          <HStack spacing="0.75rem">
+          <HStack spacing="0.75em">
             <Link href="https://twitter.com/tomokiqi">
               <a>
                 <FaTwitter color="white" />

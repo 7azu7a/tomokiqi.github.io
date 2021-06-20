@@ -9,7 +9,7 @@ type Props = {
 export const BlogList: React.VFC<Props> = ({ blogList }) => {
   return (
     <Flex width="100%" direction="column">
-      <Grid templateColumns="repeat(4, 1fr)" gap="1rem" width="100%">
+      <Grid templateColumns="repeat(4, 1fr)" gap="1em" width="100%">
         {blogList.contents.map((blog) => (
           <BlogParts blog={blog} key={blog.id} />
         ))}

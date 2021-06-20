@@ -22,7 +22,7 @@ const Index: React.VFC<Props> = ({ blogList }) => {
     <Container>
       <Cover />
       <Main>
-        <VStack alignItems="center" width="100%" spacing="2rem">
+        <VStack alignItems="center" width="100%" spacing="2em">
           <BlogList blogList={blogList} />
           <ButtonParts label={"全ての記事　＞"} callback={pushBlogListPage} />
         </VStack>

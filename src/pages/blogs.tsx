@@ -26,7 +26,7 @@ const Blogs: React.VFC<Props> = ({ blogList }) => {
 
   return (
     <Container>
-      <VStack p="2rem" width="100%" spacing="2rem">
+      <VStack p="2em" width="100%" spacing="2em">
         <BlogPageHeader setSearchWord={setSearchWord} />
         <BlogList blogList={displayBlogList} />
       </VStack>

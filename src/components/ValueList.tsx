@@ -7,21 +7,21 @@ export const ValueList = () => {
     <Flex
       justifyContent="center"
       alignItems="center"
-      width="8rem"
-      height="8rem"
+      width="8em"
+      height="8em"
       borderWidth="2px"
       borderStyle="solid"
       borderColor="white"
       borderRadius="50%"
-      mx="1rem"
+      mx="1em"
     >
       <Text fontWeight="bold">{value}</Text>
     </Flex>
   );
   return (
     <Flex justifyContent="center" alignItems="center">
-      <Box mr="1rem">
-        <Heading fontSize="1rem" mb="0.25rem">
+      <Box mr="1em">
+        <Heading fontSize="1em" mb="0.25em">
           私の強み
         </Heading>
         <Text fontSize="0.75">via CliftonStrengths</Text>

@@ -18,10 +18,10 @@ export const Cover = () => (
     `}
   >
     <Flex direction="column" userSelect="none">
-      <Heading ml="4rem" fontSize="1.5rem">
+      <Heading ml="4em" fontSize="1.5em">
         祇園精舎
       </Heading>
-      <Text lineHeight="2rem">
+      <Text lineHeight="2em">
         祇園精舍の鐘の声、諸行無常の響きあり。
         <br />
         娑羅双樹の花の色、盛者必衰の理をあらはす。

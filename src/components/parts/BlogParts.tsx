@@ -32,11 +32,11 @@ export const BlogParts: React.VFC<Props> = ({ blog }) => {
         height="70%"
         objectFit="cover"
       />
-      <Flex direction="column" height="30%" justifyContent="center" p="1rem">
-        <Heading fontSize="1rem" isTruncated mb="0.5rem">
+      <Flex direction="column" height="30%" justifyContent="center" p="1em">
+        <Heading fontSize="1em" isTruncated mb="0.5em">
           {blog.title}
         </Heading>
-        <Text fontSize="0.75rem">{`最終更新：${dayjs(blog.updatedAt).format(
+        <Text fontSize="0.75em">{`最終更新：${dayjs(blog.updatedAt).format(
           "YYYY/MM/DD"
         )}`}</Text>
       </Flex>

@@ -10,7 +10,7 @@ export const ButtonParts: React.VFC<ButtonProps> = ({ label, callback }) => (
     bgColor="white"
     color="black"
     borderRadius="0"
-    width="16rem"
+    width="16em"
     onClick={callback}
     _active={{
       borderWidth: "2px",

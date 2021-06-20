@@ -23,7 +23,7 @@ export const BlogPageHeader: React.VFC<Props> = ({ setSearchWord }) => {
 
   return (
     <Flex width="100%">
-      <Box width="16rem" mr="2rem">
+      <Box width="16em" mr="2em">
         <ButtonParts label={"＜　戻る"} callback={routerBack} />
       </Box>
       <InputGroup>
