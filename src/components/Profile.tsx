@@ -32,7 +32,7 @@ export const Profile = () => {
         <Text>
           通信キャリアにて自社サービスのフロントエンド開発や政府研究開発のシステム設計に従事。
           <br />
-          Scrum Alliance®︎ 認定スクラムマスター。趣味はイタリアン料理など。
+          Scrum Alliance®︎ 認定スクラムマスター。
         </Text>
         <Text mb="1em">
           TypeScript ｜ React ｜ Next ｜ Express ｜ Scala ｜ Akka ｜ GitHub ｜

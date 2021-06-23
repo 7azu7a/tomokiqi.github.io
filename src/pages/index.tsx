@@ -4,7 +4,7 @@ import { Container } from "components/Container";
 import { Cover } from "components/Cover";
 import { BlogList } from "components/BlogList";
 import { Profile } from "components/Profile";
-import { ValueList } from "components/ValueList";
+import { FeatureList } from "components/FeatureList";
 import { Footer } from "components/Footer";
 import { ButtonParts } from "components/parts/ButtonParts";
 import { IBlogList } from "interfaces/blog";
@@ -27,7 +27,7 @@ const Index: React.VFC<Props> = ({ blogList }) => {
           <ButtonParts label={"全ての記事　＞"} callback={pushBlogListPage} />
         </VStack>
         <Profile />
-        <ValueList />
+        <FeatureList />
         <Footer />
       </Main>
     </Container>
