@@ -22,7 +22,7 @@ export const ValueList = () => {
     <Flex
       justifyContent="center"
       alignItems="center"
-      direction={{ base: "column", sm: "row" }}
+      direction={{ base: "column", md: "row" }}
       width="100%"
     >
       <Flex m="1em" alignItems="center" direction="column">
