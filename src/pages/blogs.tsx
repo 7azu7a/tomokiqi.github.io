@@ -18,8 +18,7 @@ const Blogs: React.VFC<Props> = ({ blogList }) => {
       ...blogList,
       contents: blogList.contents.filter(
         (blog) =>
-          blog.title.toLowerCase().indexOf(searchWord.toLowerCase()) >= 0 ||
-          blog.body.toLowerCase().indexOf(searchWord.toLowerCase()) >= 0
+          blog.title.toLowerCase().indexOf(searchWord.toLowerCase()) >= 0
       ),
     });
   }, [searchWord]);
