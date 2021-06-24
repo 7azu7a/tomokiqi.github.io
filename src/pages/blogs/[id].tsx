@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import { IBlog, IBlogList } from "interfaces/blog";
 import { Container } from "components/Container";
