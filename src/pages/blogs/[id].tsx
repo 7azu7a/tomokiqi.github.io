@@ -4,20 +4,30 @@ import { IBlog, IBlogList } from "interfaces/blog";
 import { Container } from "components/Container";
 import {
   VStack,
+  Box,
   Flex,
   Heading,
-  Image as ChakraImage,
   Skeleton,
+  Image as ChakraImage,
 } from "@chakra-ui/react";
 import { ButtonParts } from "components/parts/ButtonParts";
 import { useRouter } from "next/router";
+import { css } from "@emotion/react";
+import hljs from "highlight.js";
+import "highlight.js/styles/a11y-light.css";
+import cheerio from "cheerio";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
-const Blog: React.VFC<Props> = ({ blog }) => {
+const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
   const router = useRouter();
   const [isLoadedImage, setIsLoadedImage] = useState(false);
-  const routerBack = useCallback(() => router.back(), []);
+  const routerBack = () => router.back();
+  const returnTop = () =>
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
 
   return (
     <Container>
@@ -41,12 +51,30 @@ const Blog: React.VFC<Props> = ({ blog }) => {
         </Skeleton>
         <Heading fontSize="1.5em">{blog.title}</Heading>
         <Flex width="100%">
-          <div
+          <Box
+            width="100%"
             dangerouslySetInnerHTML={{
-              __html: `${blog.body}`,
+              __html: `${highlightedBody}`,
             }}
+            css={css`
+              h1 {
+                font-size: 1.25em;
+                margin: 1em 0;
+                font-weight: bold;
+              }
+              ul {
+                margin: 0.5em 0 0.5em 1em;
+              }
+              pre {
+                background-color: white;
+                margin: 1em 0;
+                padding: 0.5em;
+                overflow-x: scroll;
+              }
+            `}
           />
         </Flex>
+        <ButtonParts label={"ページトップへ戻る"} callback={returnTop} />
       </VStack>
     </Container>
   );
@@ -91,9 +119,17 @@ export const getStaticProps = async (
 
   const id = context.params?.id;
   const res = await fetch(`${endpoint}${id}`, key);
-  const data = await res.json();
+  const blog = await res.json();
 
-  return { props: { blog: data as IBlog } };
+  const $ = cheerio.load(blog.body);
+
+  $("pre code").each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text());
+    $(elm).html(result.value);
+    $(elm).addClass("hljs");
+  });
+
+  return { props: { blog: blog as IBlog, highlightedBody: $.html() } };
 };
 
 export default Blog;
