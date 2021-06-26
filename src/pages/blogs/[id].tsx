@@ -129,7 +129,10 @@ export const getStaticProps = async (
     $(elm).addClass("hljs");
   });
 
-  return { props: { blog: blog as IBlog, highlightedBody: $.html() } };
+  return {
+    props: { blog: blog as IBlog, highlightedBody: $.html() },
+    revalidate: 60,
+  };
 };
 
 export default Blog;
