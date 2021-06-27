@@ -35,8 +35,7 @@ export const Profile = () => {
           Scrum Alliance®︎ 認定スクラムマスター。
         </Text>
         <Text mb="1em">
-          TypeScript ｜ React ｜ Next ｜ Express ｜ Scala ｜ Akka ｜ GitHub ｜
-          Scrum Master
+          TypeScript ｜ React ｜ Next ｜ Express ｜ GitHub ｜ Scrum Master
         </Text>
         <HStack spacing="0.75em">
           <Link href="https://github.com/tomokiqi">
