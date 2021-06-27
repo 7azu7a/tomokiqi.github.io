@@ -74,7 +74,7 @@ const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
             `}
           />
         </Flex>
-        <ButtonParts label={"ページトップへ戻る"} callback={returnTop} />
+        <ButtonParts label={"▲ ページトップへ戻る"} callback={returnTop} />
       </VStack>
     </Container>
   );
