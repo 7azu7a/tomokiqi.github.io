@@ -46,8 +46,7 @@ export const getStaticProps = async () => {
     headers: { "x-api-key": process.env.API_KEY ?? "" },
   };
 
-  // TODO: 正しくQuery Paramの設定
-  const res = await fetch(`${endpoint}?limit=4`, key);
+  const res = await fetch(`${endpoint}?limit=12`, key);
   const data = await res.json();
 
   return {

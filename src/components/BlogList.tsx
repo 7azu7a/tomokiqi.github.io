@@ -1,5 +1,5 @@
 import { Grid } from "@chakra-ui/react";
-import { BlogParts } from "./parts/BlogParts";
+import { BlogModule } from "./module/BlogModule";
 import { IBlogList } from "interfaces/blog";
 
 type Props = {
@@ -15,7 +15,7 @@ export const BlogList: React.VFC<Props> = ({ blogList }) => (
     {blogList.contents
       .sort((a, b) => (a.updatedAt > b.updatedAt ? -1 : 1))
       .map((blog) => (
-        <BlogParts blog={blog} key={blog.id} />
+        <BlogModule blog={blog} key={blog.id} />
       ))}
   </Grid>
 );

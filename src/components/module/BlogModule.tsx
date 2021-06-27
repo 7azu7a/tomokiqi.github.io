@@ -14,7 +14,7 @@ type Props = {
   blog: IBlog;
 };
 
-export const BlogParts: React.VFC<Props> = ({ blog }) => {
+export const BlogModule: React.VFC<Props> = ({ blog }) => {
   const [isLoadedImage, setIsLoadedImage] = useState(false);
   const router = useRouter();
 
