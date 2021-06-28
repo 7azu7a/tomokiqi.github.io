@@ -98,7 +98,7 @@ export const getStaticPaths = async () => {
   const blogs = (await res.json()) as IBlogList;
   const paths = blogs.contents.map((blog) => `/blogs/${blog.id}`);
 
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 };
 
 export const getStaticProps = async (
