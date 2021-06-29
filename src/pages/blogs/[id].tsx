@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { InferGetStaticPropsType, GetStaticPropsContext } from "next";
+import { InferGetStaticPropsType, GetStaticPaths, GetStaticProps } from "next";
 import { IBlog, IBlogList } from "interfaces/blog";
 import { Container } from "components/Container";
 import {
@@ -7,6 +7,7 @@ import {
   Box,
   Flex,
   Heading,
+  Text,
   Skeleton,
   Image as ChakraImage,
 } from "@chakra-ui/react";
@@ -16,6 +17,7 @@ import { css } from "@emotion/react";
 import hljs from "highlight.js";
 import "highlight.js/styles/a11y-light.css";
 import cheerio from "cheerio";
+import { ParsedUrlQuery } from "querystring";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -29,58 +31,70 @@ const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
       behavior: "smooth",
     });
 
-  return (
-    <Container>
-      <VStack
-        width="100%"
-        spacing="2em"
-        justifyContent="center"
-        alignItems="flex-start"
-        p="2em"
-      >
-        <ButtonParts label={"＜　戻る"} callback={routerBack} />
-        <Skeleton width="100%" height="30%" isLoaded={isLoadedImage}>
-          <ChakraImage
-            src={`${blog.cover.url}?dpr=2&w=1024`}
-            alt="cover image"
-            width="100%"
-            height="30vh"
-            objectFit="cover"
-            onLoad={() => setIsLoadedImage(true)}
-          />
-        </Skeleton>
-        <Heading fontSize="1.5em">{blog.title}</Heading>
-        <Flex width="100%">
-          <Box
-            width="100%"
-            dangerouslySetInnerHTML={{
-              __html: `${highlightedBody}`,
-            }}
-            css={css`
-              h1 {
-                font-size: 1.25em;
-                margin: 1em 0;
-                font-weight: bold;
-              }
-              ul {
-                margin: 0.5em 0 0.5em 1em;
-              }
-              pre {
-                background-color: white;
-                margin: 1em 0;
-                padding: 0.5em;
-                overflow-x: scroll;
-              }
-            `}
-          />
-        </Flex>
-        <ButtonParts label={"▲ ページトップへ戻る"} callback={returnTop} />
-      </VStack>
-    </Container>
-  );
+  if (router.isFallback) {
+    return (
+      <Container>
+        <Text>Loading...</Text>
+      </Container>
+    );
+  } else {
+    return (
+      <Container>
+        <VStack
+          width="100%"
+          spacing="2em"
+          justifyContent="center"
+          alignItems="flex-start"
+          p="2em"
+        >
+          <ButtonParts label={"＜　戻る"} callback={routerBack} />
+          <Skeleton width="100%" height="30%" isLoaded={isLoadedImage}>
+            <ChakraImage
+              src={`${blog.cover.url}?dpr=2&w=1024`}
+              alt="cover image"
+              width="100%"
+              height="30vh"
+              objectFit="cover"
+              onLoad={() => setIsLoadedImage(true)}
+            />
+          </Skeleton>
+          <Heading fontSize="1.5em">{blog.title}</Heading>
+          <Flex width="100%">
+            <Box
+              width="100%"
+              dangerouslySetInnerHTML={{
+                __html: `${highlightedBody}`,
+              }}
+              css={css`
+                h1 {
+                  font-size: 1.25em;
+                  margin: 1em 0;
+                  font-weight: bold;
+                }
+                ul {
+                  margin: 0.5em 0 0.5em 1em;
+                }
+                pre {
+                  background-color: white;
+                  margin: 1em 0;
+                  padding: 0.5em;
+                  overflow-x: scroll;
+                }
+              `}
+            />
+          </Flex>
+          <ButtonParts label={"▲ ページトップへ戻る"} callback={returnTop} />
+        </VStack>
+      </Container>
+    );
+  }
 };
 
-export const getStaticPaths = async () => {
+interface PathParams extends ParsedUrlQuery {
+  id: string;
+}
+
+export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
   const apiKey = process.env.API_KEY;
   const endpoint = process.env.ENDPOINT;
 
@@ -96,14 +110,19 @@ export const getStaticPaths = async () => {
 
   const res = await fetch(endpoint, key);
   const blogs = (await res.json()) as IBlogList;
-  const paths = blogs.contents.map((blog) => `/blogs/${blog.id}`);
+  const paths = blogs.contents.map((blog) => ({ params: { id: blog.id } }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
-export const getStaticProps = async (
-  context: GetStaticPropsContext<{ id: string }>
-) => {
+interface PropsParams {
+  blog: IBlog;
+  highlightedBody: string;
+}
+
+export const getStaticProps: GetStaticProps<PropsParams, PathParams> = async ({
+  params,
+}) => {
   const apiKey = process.env.API_KEY;
   const endpoint = process.env.ENDPOINT;
 
@@ -117,7 +136,7 @@ export const getStaticProps = async (
     headers: { "x-api-key": process.env.API_KEY ?? "" },
   };
 
-  const id = context.params?.id;
+  const id = params!.id;
   const res = await fetch(`${endpoint}${id}`, key);
   const blog = await res.json();
 
