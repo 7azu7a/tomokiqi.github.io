@@ -33,12 +33,6 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
           ENDPOINT: ${{ secrets.ENDPOINT }}
 
-      - name: export
-        run: npm run export
-
-      - name: add nojekyll
-        run: touch ./out/.nojekyll
-
       - name: deploy
         run: |
           prodRun=""
