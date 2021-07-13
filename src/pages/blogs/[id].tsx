@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { InferGetStaticPropsType, GetStaticPaths, GetStaticProps } from "next";
-import { IBlog, IBlogList } from "interfaces/blog";
-import { Container } from "components/Container";
+import { useState } from 'react';
+import { InferGetStaticPropsType, GetStaticPaths, GetStaticProps } from 'next';
+import { IBlog, IBlogList } from 'interfaces/blog';
+import { Container } from 'components/Container';
 import {
   VStack,
   Box,
@@ -10,14 +10,14 @@ import {
   Text,
   Skeleton,
   Image as ChakraImage,
-} from "@chakra-ui/react";
-import { ButtonParts } from "components/parts/ButtonParts";
-import { useRouter } from "next/router";
-import { css } from "@emotion/react";
-import hljs from "highlight.js";
-import "highlight.js/styles/a11y-light.css";
-import cheerio from "cheerio";
-import { ParsedUrlQuery } from "querystring";
+} from '@chakra-ui/react';
+import { ButtonParts } from 'components/parts/ButtonParts';
+import { useRouter } from 'next/router';
+import { css } from '@emotion/react';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/a11y-light.css';
+import cheerio from 'cheerio';
+import { ParsedUrlQuery } from 'querystring';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -28,7 +28,7 @@ const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
   const returnTop = () =>
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
 
   if (router.isFallback) {
@@ -47,7 +47,7 @@ const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
           alignItems="flex-start"
           p="2em"
         >
-          <ButtonParts label={"＜　戻る"} callback={routerBack} />
+          <ButtonParts label={'＜　戻る'} callback={routerBack} />
           <Skeleton width="100%" height="30%" isLoaded={isLoadedImage}>
             <ChakraImage
               src={`${blog.cover.url}?dpr=2&w=1024`}
@@ -83,7 +83,7 @@ const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
               `}
             />
           </Flex>
-          <ButtonParts label={"▲ ページトップへ戻る"} callback={returnTop} />
+          <ButtonParts label={'▲ ページトップへ戻る'} callback={returnTop} />
         </VStack>
       </Container>
     );
@@ -99,13 +99,13 @@ export const getStaticPaths: GetStaticPaths<PathParams> = async () => {
   const endpoint = process.env.ENDPOINT;
 
   if (apiKey === undefined) {
-    throw new Error("API KEY is undefined");
+    throw new Error('API KEY is undefined');
   } else if (endpoint === undefined) {
-    throw new Error("ENDPOINT is undefined");
+    throw new Error('ENDPOINT is undefined');
   }
 
   const key = {
-    headers: { "x-api-key": process.env.API_KEY ?? "" },
+    headers: { 'x-api-key': process.env.API_KEY ?? '' },
   };
 
   const res = await fetch(endpoint, key);
@@ -127,13 +127,13 @@ export const getStaticProps: GetStaticProps<PropsParams, PathParams> = async ({
   const endpoint = process.env.ENDPOINT;
 
   if (apiKey === undefined) {
-    throw new Error("API KEY is undefined");
+    throw new Error('API KEY is undefined');
   } else if (endpoint === undefined) {
-    throw new Error("ENDPOINT is undefined");
+    throw new Error('ENDPOINT is undefined');
   }
 
   const key = {
-    headers: { "x-api-key": process.env.API_KEY ?? "" },
+    headers: { 'x-api-key': process.env.API_KEY ?? '' },
   };
 
   const id = params!.id;
@@ -142,10 +142,10 @@ export const getStaticProps: GetStaticProps<PropsParams, PathParams> = async ({
 
   const $ = cheerio.load(blog.body);
 
-  $("pre code").each((_, elm) => {
+  $('pre code').each((_, elm) => {
     const result = hljs.highlightAuto($(elm).text());
     $(elm).html(result.value);
-    $(elm).addClass("hljs");
+    $(elm).addClass('hljs');
   });
 
   return {

@@ -1,21 +1,21 @@
-import { InferGetStaticPropsType } from "next";
-import { useRouter } from "next/router";
-import { Container } from "components/Container";
-import { Cover } from "components/Cover";
-import { BlogList } from "components/BlogList";
-import { Profile } from "components/Profile";
-import { Footer } from "components/Footer";
-import { ButtonParts } from "components/parts/ButtonParts";
-import { IBlogList } from "interfaces/blog";
-import { VStack } from "@chakra-ui/react";
-import { Main } from "components/Main";
+import { InferGetStaticPropsType } from 'next';
+import { useRouter } from 'next/router';
+import { Container } from 'components/Container';
+import { Cover } from 'components/Cover';
+import { BlogList } from 'components/BlogList';
+import { Profile } from 'components/Profile';
+import { Footer } from 'components/Footer';
+import { ButtonParts } from 'components/parts/ButtonParts';
+import { IBlogList } from 'interfaces/blog';
+import { VStack } from '@chakra-ui/react';
+import { Main } from 'components/Main';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Index: React.VFC<Props> = ({ blogList }) => {
   const router = useRouter();
   const pushBlogListPage = () =>
-    router.push("/blogs", undefined, { shallow: true });
+    router.push('/blogs', undefined, { shallow: true });
 
   return (
     <Container>
@@ -23,7 +23,7 @@ const Index: React.VFC<Props> = ({ blogList }) => {
       <Main>
         <VStack alignItems="center" width="100%" spacing="2em">
           <BlogList blogList={blogList} />
-          <ButtonParts label={"全ての記事　＞"} callback={pushBlogListPage} />
+          <ButtonParts label={'全ての記事　＞'} callback={pushBlogListPage} />
         </VStack>
         <Profile />
         <Footer />
@@ -37,13 +37,13 @@ export const getStaticProps = async () => {
   const endpoint = process.env.ENDPOINT;
 
   if (apiKey === undefined) {
-    throw new Error("API KEY is undefined");
+    throw new Error('API KEY is undefined');
   } else if (endpoint === undefined) {
-    throw new Error("ENDPOINT is undefined");
+    throw new Error('ENDPOINT is undefined');
   }
 
   const key = {
-    headers: { "x-api-key": process.env.API_KEY ?? "" },
+    headers: { 'x-api-key': process.env.API_KEY ?? '' },
   };
 
   const res = await fetch(`${endpoint}?limit=12`, key);

@@ -1,14 +1,14 @@
-import { IBlog } from "../../interfaces/blog";
+import { IBlog } from '../../interfaces/blog';
 import {
   Flex,
   Heading,
   Text,
   Image as ChakraImage,
   Skeleton,
-} from "@chakra-ui/react";
-import dayjs from "dayjs";
-import { useRouter } from "next/router";
-import { useState } from "react";
+} from '@chakra-ui/react';
+import dayjs from 'dayjs';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 type Props = {
   blog: IBlog;
@@ -55,7 +55,7 @@ export const BlogModule: React.VFC<Props> = ({ blog }) => {
           {blog.title}
         </Heading>
         <Text fontSize="0.75em">
-          {`最終更新：${dayjs(blog.updatedAt).format("YYYY/MM/DD")}`}
+          {`最終更新：${dayjs(blog.updatedAt).format('YYYY/MM/DD')}`}
         </Text>
       </Flex>
     </Flex>

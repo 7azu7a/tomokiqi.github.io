@@ -1,14 +1,14 @@
-import { useRouter } from "next/router";
-import { useCallback, Dispatch, SetStateAction } from "react";
+import { useRouter } from 'next/router';
+import { useCallback, Dispatch, SetStateAction } from 'react';
 import {
   Flex,
   Box,
   InputGroup,
   InputLeftElement,
   Input,
-} from "@chakra-ui/react";
-import { ButtonParts } from "components/parts/ButtonParts";
-import { SearchIcon } from "@chakra-ui/icons";
+} from '@chakra-ui/react';
+import { ButtonParts } from 'components/parts/ButtonParts';
+import { SearchIcon } from '@chakra-ui/icons';
 
 type Props = {
   setSearchWord: Dispatch<SetStateAction<string>>;
@@ -22,9 +22,9 @@ export const BlogPageHeader: React.VFC<Props> = ({ setSearchWord }) => {
     setSearchWord(e.target.value);
 
   return (
-    <Flex width="100%" direction={{ base: "column", sm: "row" }}>
+    <Flex width="100%" direction={{ base: 'column', sm: 'row' }}>
       <Box width="100%" mr="2em" mb="2em">
-        <ButtonParts label={"＜　戻る"} callback={routerBack} />
+        <ButtonParts label={'＜　戻る'} callback={routerBack} />
       </Box>
       <InputGroup>
         <InputLeftElement

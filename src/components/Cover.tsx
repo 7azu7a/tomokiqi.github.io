@@ -1,4 +1,4 @@
-import { Flex, Text, Box, Image as ChakraImage } from "@chakra-ui/react";
+import { Flex, Text, Box, Image as ChakraImage } from '@chakra-ui/react';
 
 export const Cover = () => (
   <Flex
@@ -15,7 +15,7 @@ export const Cover = () => (
     userSelect="none"
   >
     <Box
-      width={{ base: "70.72%", md: "29.28%" }}
+      width={{ base: '70.72%', md: '29.28%' }}
       textAlign="justify"
       lineHeight="1.618em"
     >

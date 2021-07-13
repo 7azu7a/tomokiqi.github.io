@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import { VStack } from "@chakra-ui/react";
+import { useState, useEffect } from 'react';
+import { VStack } from '@chakra-ui/react';
 
-import { IBlogList } from "interfaces/blog";
-import { BlogList } from "components/BlogList";
-import { InferGetStaticPropsType } from "next";
-import { Container } from "components/Container";
-import { BlogPageHeader } from "components/BlogPageHeader";
+import { IBlogList } from 'interfaces/blog';
+import { BlogList } from 'components/BlogList';
+import { InferGetStaticPropsType } from 'next';
+import { Container } from 'components/Container';
+import { BlogPageHeader } from 'components/BlogPageHeader';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Blogs: React.VFC<Props> = ({ blogList }) => {
-  const [searchWord, setSearchWord] = useState("");
+  const [searchWord, setSearchWord] = useState('');
   const [displayBlogList, setDisplayBlogList] = useState(blogList);
 
   useEffect(() => {
@@ -38,13 +38,13 @@ export const getStaticProps = async () => {
   const endpoint = process.env.ENDPOINT;
 
   if (apiKey === undefined) {
-    throw new Error("API KEY is undefined");
+    throw new Error('API KEY is undefined');
   } else if (endpoint === undefined) {
-    throw new Error("ENDPOINT is undefined");
+    throw new Error('ENDPOINT is undefined');
   }
 
   const key = {
-    headers: { "x-api-key": process.env.API_KEY ?? "" },
+    headers: { 'x-api-key': process.env.API_KEY ?? '' },
   };
 
   const res = await fetch(endpoint, key);

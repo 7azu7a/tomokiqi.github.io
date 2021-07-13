@@ -1,6 +1,6 @@
-import { Grid } from "@chakra-ui/react";
-import { BlogModule } from "./module/BlogModule";
-import { IBlogList } from "interfaces/blog";
+import { Grid } from '@chakra-ui/react';
+import { BlogModule } from './module/BlogModule';
+import { IBlogList } from 'interfaces/blog';
 
 type Props = {
   blogList: IBlogList;

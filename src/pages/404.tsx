@@ -1,11 +1,11 @@
-import { Container } from "components/Container";
-import { Flex, Heading, Text } from "@chakra-ui/react";
-import { ButtonParts } from "components/parts/ButtonParts";
-import { useRouter } from "next/router";
+import { Container } from 'components/Container';
+import { Flex, Heading, Text } from '@chakra-ui/react';
+import { ButtonParts } from 'components/parts/ButtonParts';
+import { useRouter } from 'next/router';
 
 const Custom404 = () => {
   const router = useRouter();
-  const pushIndexPage = () => router.push("/", undefined, { shallow: true });
+  const pushIndexPage = () => router.push('/', undefined, { shallow: true });
 
   return (
     <Container>

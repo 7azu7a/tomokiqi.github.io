@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { FaTwitter, FaGithub } from "react-icons/fa";
+import Link from 'next/link';
+import { FaTwitter, FaGithub } from 'react-icons/fa';
 import {
   Flex,
   HStack,
@@ -7,18 +7,18 @@ import {
   Text,
   VStack,
   Image as ChakraImage,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 export const Profile = () => {
   return (
     <Flex
       justifyContent="center"
       alignItems="center"
-      direction={{ base: "column", sm: "row" }}
+      direction={{ base: 'column', sm: 'row' }}
     >
       <ChakraImage
         alt="author photo"
-        src={"/me.png"}
+        src={'/me.png'}
         width="10em"
         height="10em"
         mx="2em"
@@ -26,7 +26,7 @@ export const Profile = () => {
         objectFit="cover"
       />
       <VStack alignItems="flex-start" textAlign="justify">
-        <Heading fontSize="1.25em" textAlign={{ base: "center", sm: "start" }}>
+        <Heading fontSize="1.25em" textAlign={{ base: 'center', sm: 'start' }}>
           西條 友喜
         </Heading>
         <Text>
