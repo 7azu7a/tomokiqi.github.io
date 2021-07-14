@@ -7,7 +7,7 @@
     "start": "next start",
     "export": "next export",
     "test": "jest",
-    "fmt": "prettier --write src/**/*.{ts,tsx}"
+    "fmt": "prettier --write 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.13",
