@@ -22,7 +22,7 @@ export const Cover = () => (
       <ChakraImage
         src="/cover_message_title.png"
         alt="cover message title"
-        height="8em"
+        h="8em"
         mr="1em"
         mb="1em"
         float="left"

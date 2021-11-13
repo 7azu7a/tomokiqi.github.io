@@ -17,6 +17,7 @@ export const ButtonParts: React.VFC<ButtonProps> = ({ label, callback }) => (
       borderStyle: 'solid',
       borderColor: 'white',
     }}
+    m="auto"
   >
     {label}
   </Button>
