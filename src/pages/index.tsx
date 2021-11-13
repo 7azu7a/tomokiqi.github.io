@@ -4,6 +4,8 @@ import { Container } from 'components/Container';
 import { Cover } from 'components/Cover';
 import { BlogList } from 'components/BlogList';
 import { Profile } from 'components/Profile';
+import { CareerList } from 'components/CareerList';
+import { Future } from 'components/Future';
 import { Footer } from 'components/Footer';
 import { ButtonParts } from 'components/parts/ButtonParts';
 import { IBlogList } from 'interfaces/blog';
@@ -14,8 +16,10 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Index: React.VFC<Props> = ({ blogList }) => {
   const router = useRouter();
-  const pushBlogListPage = () =>
+  const pushToBlogListPage = () =>
     router.push('/blogs', undefined, { shallow: true });
+  // const pushToCareerPage = () =>
+  //   router.push('/career', undefined, { shallow: true });
 
   return (
     <Container>
@@ -23,9 +27,12 @@ const Index: React.VFC<Props> = ({ blogList }) => {
       <Main>
         <VStack alignItems="center" width="100%" spacing="2em">
           <BlogList blogList={blogList} />
-          <ButtonParts label={'全ての記事　＞'} callback={pushBlogListPage} />
+          <ButtonParts label={'全ての記事　＞'} callback={pushToBlogListPage} />
         </VStack>
         <Profile />
+        <CareerList />
+        {/* <ButtonParts label={'詳細　＞'} callback={pushToCareerPage} /> */}
+        <Future />
         <Footer />
       </Main>
     </Container>
