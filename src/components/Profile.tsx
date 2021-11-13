@@ -12,30 +12,30 @@ import {
 export const Profile = () => {
   return (
     <Flex
-      justifyContent="center"
+      justifyContent="left"
       alignItems="center"
       direction={{ base: 'column', sm: 'row' }}
+      w="50%"
     >
       <ChakraImage
         alt="author photo"
         src={'/me.png'}
         width="10em"
         height="10em"
-        mx="2em"
-        my="1em"
         objectFit="cover"
+        mb={{ base: '2em', sm: '0px' }}
+        mr={{ base: '0px', sm: '2em' }}
       />
       <VStack alignItems="flex-start" textAlign="justify">
         <Heading fontSize="1.25em" textAlign={{ base: 'center', sm: 'start' }}>
           西條 友喜
         </Heading>
         <Text>
-          通信キャリアにて自社サービスのフロントエンド開発や政府研究開発のシステム設計に従事。
-          <br />
-          Scrum Alliance®︎ 認定スクラムマスター。
+          神奈川県横浜市（の田舎）出身。大学院卒業後に新卒入社した通信キャリアにて、自社サービスのフロントエンド開発や政府研究開発のシステム設計などを担当。認定スクラムマスター（CSM）の資格も保有。趣味はイタリアン料理と米国株投資。
         </Text>
         <Text mb="1em">
-          TypeScript ｜ React ｜ Next ｜ Express ｜ GitHub ｜ Scrum Master
+          TypeScript ｜ React ｜ Vue.js ｜ Next.js ｜ Express ｜ GitHub ｜ Scrum
+          Master
         </Text>
         <HStack spacing="0.75em">
           <Link href="https://github.com/tomokiqi">
