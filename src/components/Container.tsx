@@ -12,6 +12,7 @@ export const Container: React.VFC<Props> = ({ children }) => {
       direction="column"
       justifyContent="center"
       alignItems="center"
+      id="page-container"
     >
       {children}
     </Flex>

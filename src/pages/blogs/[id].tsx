@@ -47,7 +47,9 @@ const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
           alignItems="flex-start"
           p="2em"
         >
-          <ButtonParts label={'＜　戻る'} callback={routerBack} />
+          <Box>
+            <ButtonParts label={'＜　戻る'} callback={routerBack} />
+          </Box>
           <Skeleton width="100%" height="30%" isLoaded={isLoadedImage}>
             <ChakraImage
               src={`${blog.cover.url}?dpr=2&w=1024`}

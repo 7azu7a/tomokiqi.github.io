@@ -39,7 +39,7 @@ export const Future = () => {
       </Heading>
       <Accordion allowToggle>
         {wantToDo.map((todo) => (
-          <AccordionItem>
+          <AccordionItem key={todo.title}>
             <AccordionButton>
               <Box flex="1" textAlign="left">
                 {todo.title}
