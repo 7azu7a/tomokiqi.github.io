@@ -5,7 +5,6 @@ import { Cover } from 'components/Cover';
 import { BlogList } from 'components/BlogList';
 import { Profile } from 'components/Profile';
 import { CareerList } from 'components/CareerList';
-import { Future } from 'components/Future';
 import { Footer } from 'components/Footer';
 import { ButtonParts } from 'components/parts/ButtonParts';
 import { IBlogList } from 'interfaces/blog';
@@ -18,8 +17,8 @@ const Index: React.VFC<Props> = ({ blogList }) => {
   const router = useRouter();
   const pushToBlogListPage = () =>
     router.push('/blogs', undefined, { shallow: true });
-  // const pushToCareerPage = () =>
-  //   router.push('/career', undefined, { shallow: true });
+  const pushToCareerPage = () =>
+    router.push('/career', undefined, { shallow: true });
 
   return (
     <Container>
@@ -31,8 +30,7 @@ const Index: React.VFC<Props> = ({ blogList }) => {
         </VStack>
         <Profile />
         <CareerList />
-        {/* <ButtonParts label={'詳細　＞'} callback={pushToCareerPage} /> */}
-        <Future />
+        <ButtonParts label={'詳細　＞'} callback={pushToCareerPage} />
         <Footer />
       </Main>
     </Container>
