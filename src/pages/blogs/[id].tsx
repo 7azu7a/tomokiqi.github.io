@@ -1,7 +1,7 @@
 import { InferGetStaticPropsType, GetStaticPaths, GetStaticProps } from 'next';
 import { IBlog, IBlogList } from 'interfaces/blog';
 import { Container } from 'components/Container';
-import { VStack, Box, Flex, Heading, Text, Skeleton } from '@chakra-ui/react';
+import { VStack, Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { ButtonParts } from 'components/parts/ButtonParts';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -10,13 +10,11 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/a11y-light.css';
 import cheerio from 'cheerio';
 import { ParsedUrlQuery } from 'querystring';
-import { useState } from 'react';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
   const router = useRouter();
-  const [isLoadedImage, setIsLoadedImage] = useState(false);
 
   const routerBack = () => router.back();
   const returnTop = () =>
@@ -45,17 +43,14 @@ const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
             <ButtonParts label={'＜　戻る'} callback={routerBack} />
           </Box>
           <Box w="100%" h="30vh" pos="relative">
-            <Skeleton width="100%" height="70%" isLoaded={isLoadedImage}>
-              <Image
-                src={`${blog.cover.url}?dpr=2&w=1024`}
-                alt="blog cover image"
-                objectFit="cover"
-                layout="fill"
-                onLoad={() => {
-                  setIsLoadedImage(true);
-                }}
-              />
-            </Skeleton>
+            <Image
+              src={`${blog.cover.url}?dpr=2&w=1024`}
+              alt="blog cover"
+              objectFit="cover"
+              layout="fill"
+              placeholder="blur"
+              blurDataURL="/skeleton.jpg"
+            />
           </Box>
           <Heading fontSize="1.5em">{blog.title}</Heading>
           <Flex width="100%">

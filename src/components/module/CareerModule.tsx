@@ -34,7 +34,7 @@ export const CareerModule: React.VFC<Props> = ({ year, organization, job }) => {
         <Heading
           fontSize="1.25em"
           textAlign={{ base: 'center', md: 'start' }}
-          mb="1em"
+          mb="0.5em"
         >
           {organization}
         </Heading>

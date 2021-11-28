@@ -23,7 +23,7 @@ export const Cover = () => (
       <Box h="7em" w="4em" mr="1em" mb="1em" float="left" pos="relative">
         <Image
           src="/cover_message_title.png"
-          alt="catch copy"
+          alt="copy message"
           layout="fill"
           objectFit="contain"
           placeholder="blur"

@@ -49,7 +49,7 @@ const Career: React.VFC = () => {
 
   return (
     <Flex w="100%" flexDirection="column">
-      <Box position="fixed" top="2em" mx="2em" zIndex={1}>
+      <Box pos="fixed" top="2em" mx="2em" zIndex={1}>
         <CareerPageHeader />
       </Box>
 
