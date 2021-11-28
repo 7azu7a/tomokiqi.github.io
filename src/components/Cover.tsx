@@ -1,4 +1,5 @@
-import { Flex, Text, Box, Image as ChakraImage } from '@chakra-ui/react';
+import { Flex, Text, Box } from '@chakra-ui/react';
+import Image from 'next/image';
 
 export const Cover = () => (
   <Flex
@@ -19,14 +20,16 @@ export const Cover = () => (
       textAlign="justify"
       lineHeight="1.618em"
     >
-      <ChakraImage
-        src="/cover_message_title.png"
-        alt="cover message title"
-        h="8em"
-        mr="1em"
-        mb="1em"
-        float="left"
-      />
+      <Box h="7em" w="4em" mr="1em" mb="1em" float="left" pos="relative">
+        <Image
+          src="/cover_message_title.png"
+          alt="catch copy"
+          layout="fill"
+          objectFit="contain"
+          placeholder="blur"
+          blurDataURL="/cover_message_title.png"
+        />
+      </Box>
       <Text>
         この「克く（よく）」は困難を乗り越え励む様を、「佳く（よく）」は形が整い美しい様を意味するそうです。
         ところでアジャイル開発原則のひとつに「技術的卓越性と優れた設計に対する不断の注意が機敏さを高める」という言葉があります。技術を克く学びプロダクトを佳く作ること。それが人々へ真に価値あるモノを届けることに繋がると私は考えます。

@@ -32,7 +32,9 @@ const Career: React.VFC = () => {
         {history.year} −
       </Heading>
       <Box mb="2em">
-        <Text>{history.organization}</Text>
+        <Text mb="0.5em" fontSize="1.25em">
+          {history.organization}
+        </Text>
         <Heading fontSize="1.5em">{history.job}</Heading>
       </Box>
       <Box lineHeight="1.618em">{formatText(history.detail)}</Box>

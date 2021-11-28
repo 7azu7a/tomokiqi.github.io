@@ -1,29 +1,23 @@
-import { useState } from 'react';
 import { InferGetStaticPropsType, GetStaticPaths, GetStaticProps } from 'next';
 import { IBlog, IBlogList } from 'interfaces/blog';
 import { Container } from 'components/Container';
-import {
-  VStack,
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Skeleton,
-  Image as ChakraImage,
-} from '@chakra-ui/react';
+import { VStack, Box, Flex, Heading, Text, Skeleton } from '@chakra-ui/react';
 import { ButtonParts } from 'components/parts/ButtonParts';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { css } from '@emotion/react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/a11y-light.css';
 import cheerio from 'cheerio';
 import { ParsedUrlQuery } from 'querystring';
+import { useState } from 'react';
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
   const router = useRouter();
   const [isLoadedImage, setIsLoadedImage] = useState(false);
+
   const routerBack = () => router.back();
   const returnTop = () =>
     window.scrollTo({
@@ -41,7 +35,7 @@ const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
     return (
       <Container>
         <VStack
-          width="100%"
+          w="100%"
           spacing="2em"
           justifyContent="center"
           alignItems="flex-start"
@@ -50,16 +44,19 @@ const Blog: React.VFC<Props> = ({ blog, highlightedBody }) => {
           <Box>
             <ButtonParts label={'＜　戻る'} callback={routerBack} />
           </Box>
-          <Skeleton width="100%" height="30%" isLoaded={isLoadedImage}>
-            <ChakraImage
-              src={`${blog.cover.url}?dpr=2&w=1024`}
-              alt="cover image"
-              width="100%"
-              height="30vh"
-              objectFit="cover"
-              onLoad={() => setIsLoadedImage(true)}
-            />
-          </Skeleton>
+          <Box w="100%" h="30vh" pos="relative">
+            <Skeleton width="100%" height="70%" isLoaded={isLoadedImage}>
+              <Image
+                src={`${blog.cover.url}?dpr=2&w=1024`}
+                alt="blog cover image"
+                objectFit="cover"
+                layout="fill"
+                onLoad={() => {
+                  setIsLoadedImage(true);
+                }}
+              />
+            </Skeleton>
+          </Box>
           <Heading fontSize="1.5em">{blog.title}</Heading>
           <Flex width="100%">
             <Box

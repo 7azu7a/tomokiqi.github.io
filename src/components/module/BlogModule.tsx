@@ -1,13 +1,8 @@
 import { IBlog } from '../../interfaces/blog';
-import {
-  Flex,
-  Heading,
-  Text,
-  Image as ChakraImage,
-  Skeleton,
-} from '@chakra-ui/react';
+import { Flex, Heading, Text, Skeleton } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { useState } from 'react';
 
 type Props = {
@@ -15,8 +10,8 @@ type Props = {
 };
 
 export const BlogModule: React.VFC<Props> = ({ blog }) => {
-  const [isLoadedImage, setIsLoadedImage] = useState(false);
   const router = useRouter();
+  const [isLoadedImage, setIsLoadedImage] = useState(false);
 
   const pushBlogPage = () => {
     router.push(`/blogs/${blog.id}`);
@@ -33,18 +28,20 @@ export const BlogModule: React.VFC<Props> = ({ blog }) => {
       cursor="pointer"
       key={blog.id}
     >
-      <Skeleton width="100%" height="70%" isLoaded={isLoadedImage}>
-        <ChakraImage
-          src={`${blog.cover.url}?dpr=2&w=256`}
-          alt="cover image"
-          width="100%"
-          height="100%"
-          objectFit="cover"
-          onLoad={() => {
-            setIsLoadedImage(true);
-          }}
-        />
-      </Skeleton>
+      <Flex w="100%" h="70%" pos="relative">
+        <Skeleton width="100%" height="70%" isLoaded={isLoadedImage}>
+          <Image
+            src={`${blog.cover.url}?dpr=2&w=256`}
+            layout="fill"
+            objectFit="cover"
+            alt="blog cover"
+            placeholder="empty"
+            onLoad={() => {
+              setIsLoadedImage(true);
+            }}
+          />
+        </Skeleton>
+      </Flex>
       <Flex
         direction="column"
         height="30%"
