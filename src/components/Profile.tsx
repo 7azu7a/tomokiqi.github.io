@@ -14,7 +14,7 @@ export const Profile = () => {
     <Flex
       justifyContent="left"
       alignItems="center"
-      direction={{ base: 'column', sm: 'row' }}
+      direction={{ base: 'column', md: 'row' }}
       w="50%"
     >
       <ChakraImage
@@ -23,11 +23,11 @@ export const Profile = () => {
         width="10em"
         height="10em"
         objectFit="cover"
-        mb={{ base: '2em', sm: '0px' }}
-        mr={{ base: '0px', sm: '2em' }}
+        mb={{ base: '2em', md: '0px' }}
+        mr={{ base: '0px', md: '2em' }}
       />
       <VStack alignItems="flex-start" textAlign="justify">
-        <Heading fontSize="1.25em" textAlign={{ base: 'center', sm: 'start' }}>
+        <Heading fontSize="1.25em" textAlign={{ base: 'center', md: 'start' }}>
           西條 友喜
         </Heading>
         <Text>

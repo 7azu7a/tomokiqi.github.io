@@ -1,13 +1,9 @@
-import { Flex, Box, VStack, HStack, Text, Heading } from '@chakra-ui/react';
-import { ButtonParts } from 'components/parts/ButtonParts';
-import { useRouter } from 'next/router';
-import { useCallback } from 'react';
+import { Flex, Box, Text, Heading } from '@chakra-ui/react';
+import { CareerPageHeader } from 'components/CareerPageHeader';
 import { career } from 'constant/myCareer';
+import { ICareer } from 'interfaces/career';
 
 const Career: React.VFC = () => {
-  const router = useRouter();
-  const routerBack = useCallback(() => router.back(), []);
-
   const EyeCatchImage = ({ imagePath }: { imagePath: string }) => (
     <Flex
       pos="relative"
@@ -18,43 +14,56 @@ const Career: React.VFC = () => {
       bgPos="-320px center"
       bgImage={`/${imagePath}`}
       w="100%"
-      h="100vh"
+      h={{ base: '30vh', lg: '100vh' }}
     />
   );
 
+  const CareerDetail = ({ history }: { history: ICareer }) => (
+    <Flex
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="left"
+      w={{ base: '100%', lg: '50%' }}
+      h={{ base: '', lg: '100vh' }}
+      p={{ base: '2em', lg: '4em' }}
+      minHeight="70vh"
+    >
+      <Heading fontSize="1.5em" mb="1em">
+        {history.year} −
+      </Heading>
+      <Box mb="2em">
+        <Text>{history.organization}</Text>
+        <Heading fontSize="1.5em">{history.job}</Heading>
+      </Box>
+      <Box lineHeight="1.618em">{formatText(history.detail)}</Box>
+    </Flex>
+  );
+
   const formatText = (msg: string) => {
-    return msg.split(/(\n)/g).map((t) => (t === '\n' ? <br /> : t));
+    return msg
+      .split(/(\n)/g)
+      .map((text, index) => (text === '\n' ? <br key={index} /> : text));
   };
 
   return (
     <Flex w="100%" flexDirection="column">
-      <Box pos="fixed" top="2em" left="2em" zIndex={1}>
-        <ButtonParts label={'＜　戻る'} callback={routerBack} />
+      <Box position="fixed" top="2em" mx="2em" zIndex={1}>
+        <CareerPageHeader />
       </Box>
+
       <Flex w="100%">
         <Flex w="100%" flexDirection="column">
           {career.map((history) => (
-            <HStack w="100%">
-              <Flex w="50%">
+            <Flex
+              w="100%"
+              key={history.year}
+              flexDirection={{ base: 'column', lg: 'row' }}
+            >
+              <Flex w={{ base: '100%', lg: '50%' }}>
                 <EyeCatchImage imagePath={history.cover} />
               </Flex>
-              <VStack
-                key={history.year}
-                justifyContent="center"
-                alignItems="left"
-                w="50%"
-                h="100vh"
-                p="8em"
-                spacing="2em"
-              >
-                <Heading fontSize="1.5em">{history.year} −</Heading>
-                <Box>
-                  <Text mb="0.5em">{history.organization}</Text>
-                  <Heading fontSize="1.5em">{history.job}</Heading>
-                </Box>
-                <Box lineHeight="1.618em">{formatText(history.detail)}</Box>
-              </VStack>
-            </HStack>
+              <CareerDetail history={history} />
+            </Flex>
           ))}
         </Flex>
       </Flex>
