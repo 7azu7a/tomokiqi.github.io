@@ -3,7 +3,6 @@ import { Flex, Heading, Text } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { useState } from 'react';
 
 type Props = {
   blog: IBlog;
