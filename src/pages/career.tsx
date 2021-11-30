@@ -37,7 +37,9 @@ const Career: React.VFC = () => {
         </Text>
         <Heading fontSize="1.5em">{history.job}</Heading>
       </Box>
-      <Box lineHeight="1.618em">{formatText(history.detail)}</Box>
+      <Box lineHeight="1.618em" textAlign="justify">
+        {formatText(history.detail)}
+      </Box>
     </Flex>
   );
 
