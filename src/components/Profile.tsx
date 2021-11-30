@@ -1,6 +1,4 @@
-import Link from 'next/link';
-import { FaTwitter, FaGithub } from 'react-icons/fa';
-import { Flex, Box, HStack, Heading, Text, VStack } from '@chakra-ui/react';
+import { Flex, Box, Heading, Text, VStack } from '@chakra-ui/react';
 import Image from 'next/image';
 
 export const Profile = () => {
@@ -32,24 +30,12 @@ export const Profile = () => {
           西條 友喜
         </Heading>
         <Text>
-          神奈川県出身。大学院卒業後に新卒入社した通信キャリアにて自社サービスのフロントエンド開発を担当。2020年に認定スクラムマスターを資格取得。趣味はイタリアン料理、米国株投資やアニメ・バラエティ鑑賞など。
+          神奈川県横浜市（の田舎の方）出身。フロントエンドエンジニア。資格として認定スクラムマスター。趣味はイタリアン料理、米国株投資やドラマ・アニメ・バラエティ鑑賞など。
         </Text>
         <Text mb="1em">
           TypeScript ｜ React ｜ Vue.js ｜ Next.js ｜ Express ｜ GitHub ｜ Scrum
-          Master
+          Master ｜ etc.
         </Text>
-        <HStack spacing="0.75em">
-          <Link href="https://github.com/tomokiqi">
-            <a>
-              <FaGithub color="white" />
-            </a>
-          </Link>
-          <Link href="https://twitter.com/tomokiqi">
-            <a>
-              <FaTwitter color="white" />
-            </a>
-          </Link>
-        </HStack>
       </VStack>
     </Flex>
   );

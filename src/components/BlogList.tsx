@@ -13,7 +13,7 @@ export const BlogList: React.VFC<Props> = ({ blogList }) => (
     width="100%"
   >
     {blogList.contents
-      .sort((a, b) => (a.updatedAt > b.updatedAt ? -1 : 1))
+      .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1))
       .map((blog) => (
         <BlogModule blog={blog} key={blog.id} />
       ))}

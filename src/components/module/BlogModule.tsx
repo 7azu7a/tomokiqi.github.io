@@ -46,7 +46,7 @@ export const BlogModule: React.VFC<Props> = ({ blog }) => {
           {blog.title}
         </Heading>
         <Text fontSize="0.75em">
-          {`最終更新：${dayjs(blog.updatedAt).format('YYYY/MM/DD')}`}
+          {`${dayjs(blog.publishedAt).format('YYYY/MM/DD')}`}
         </Text>
       </Flex>
     </Flex>
