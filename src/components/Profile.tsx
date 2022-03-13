@@ -29,12 +29,13 @@ export const Profile = () => {
         <Heading fontSize="1.25em" textAlign={{ base: 'center', md: 'start' }}>
           西條 友喜
         </Heading>
+        <Text>Contact: tmk(at)ymail.ne.jp</Text>
         <Text>
-          神奈川県横浜市（の田舎の方）出身。フロントエンドエンジニア。資格として認定スクラムマスター。趣味はイタリアン料理、米国株投資やドラマ・アニメ・バラエティ鑑賞など。
+          神奈川県横浜市（ただし田舎側）出身。フロントエンドエンジニア。株式・先物ひよっこトレーダー。資格として認定スクラムマスター。
         </Text>
         <Text mb="1em">
-          TypeScript ｜ React ｜ Vue.js ｜ Next.js ｜ Express ｜ GitHub ｜ Scrum
-          Master ｜ etc.
+          JavaScript ｜ TypeScript ｜ React ｜ Next.js ｜ Storybook ｜ Node.js
+          ｜ Express ｜ Serverless Framework ｜GitHub ｜ Scrum Master
         </Text>
       </VStack>
     </Flex>
