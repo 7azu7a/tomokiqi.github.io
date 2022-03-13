@@ -7,7 +7,9 @@
     "start": "next start",
     "export": "next export",
     "test": "jest",
-    "fmt": "prettier --write 'src/**/*.{ts,tsx}'"
+    "fmt": "prettier --write 'src/**/*.{ts,tsx}'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.13",
@@ -19,13 +21,22 @@
     "dayjs": "^1.10.5",
     "framer-motion": "^4.1.17",
     "highlight.js": "^11.0.1",
-    "next": "^11.0.0",
+    "next": "^12.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-responsive-carousel": "^3.2.18"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@storybook/testing-library": "^0.0.9",
     "@testing-library/react": "^12.0.0",
     "@types/jest": "^26.0.23",
     "@types/node": "^14.6.0",
@@ -34,6 +45,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "babel-jest": "^27.0.5",
+    "babel-loader": "^8.2.3",
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "identity-obj-proxy": "^3.0.0",
