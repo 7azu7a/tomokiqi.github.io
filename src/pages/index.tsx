@@ -1,65 +1,61 @@
-import { InferGetStaticPropsType } from 'next';
-import { useRouter } from 'next/router';
-import { Container } from 'components/Container';
-import { Cover } from 'components/Cover';
-import { BlogList } from 'components/BlogList';
-import { Profile } from 'components/Profile';
-import { CareerList } from 'components/CareerList';
+import { css } from '@emotion/react';
+import { TopSection } from 'components/TopSection';
+import { Billboard } from 'components/Billboard';
+import { SectionContainer } from 'components/SectionContainer';
 import { Footer } from 'components/Footer';
-import { ButtonParts } from 'components/parts/ButtonParts';
-import { IBlogList } from 'interfaces/blog';
-import { VStack } from '@chakra-ui/react';
-import { Main } from 'components/Main';
+import { siteContents } from 'constant/contents';
+import { ScrollToTopButton } from 'components/ScrollToTopButton';
+import Seo from 'components/Seo';
 
-type Props = InferGetStaticPropsType<typeof getStaticProps>;
+const mainContainerStyle = css`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+`;
 
-const Index: React.VFC<Props> = ({ blogList }) => {
-  const router = useRouter();
-  const pushToBlogListPage = () =>
-    router.push('/blogs', undefined, { shallow: true });
-  const pushToCareerPage = () =>
-    router.push('/career', undefined, { shallow: true });
+const mainStyle = css`
+  background-color: white;
+  width: 100%;
+  z-index: 2;
+`;
 
+const Index = () => {
   return (
-    <Container>
-      <Cover />
-      <Main>
-        <VStack alignItems="center" width="100%" spacing="2em">
-          <BlogList blogList={blogList} />
-          <ButtonParts label={'全ての記事　＞'} callback={pushToBlogListPage} />
-        </VStack>
-        <Profile />
-        <CareerList />
-        <ButtonParts label={'詳細　＞'} callback={pushToCareerPage} />
+    <>
+      <Seo
+        pageTitle="Portfolio｜Tomoki Saijo"
+        pageDescription="Tomoki Saijo's portfolio."
+        pagePath="https://portfolio.tomokiqi.com/"
+        pageImg="https://portfolio.tomokiqi.com/kyoto.jpg"
+        pageImgWidth={1280}
+        pageImgHeight={1280}
+      />
+      <div css={mainContainerStyle}>
+        <TopSection />
+        <Billboard />
+        <main css={mainStyle}>
+          {siteContents.map((contents, index) => {
+            return (
+              <SectionContainer
+                id={contents.id}
+                number={index + 1}
+                title={contents.title}
+                header={contents.contents.header}
+                text={contents.contents.text}
+                coverImageSrc={contents.imageSrc}
+                coverImageAlt={contents.imageAlt}
+                coverImagePos={index % 2 ? 'left' : 'right'}
+                key={contents.id}
+              />
+            );
+          })}
+        </main>
         <Footer />
-      </Main>
-    </Container>
+        <ScrollToTopButton />
+      </div>
+    </>
   );
-};
-
-export const getStaticProps = async () => {
-  const apiKey = process.env.API_KEY;
-  const endpoint = process.env.ENDPOINT;
-
-  if (apiKey === undefined) {
-    throw new Error('API KEY is undefined');
-  } else if (endpoint === undefined) {
-    throw new Error('ENDPOINT is undefined');
-  }
-
-  const key = {
-    headers: { 'x-api-key': process.env.API_KEY ?? '' },
-  };
-
-  const res = await fetch(`${endpoint}?limit=12`, key);
-  const data = await res.json();
-
-  return {
-    props: {
-      blogList: data as IBlogList,
-    },
-    revalidate: 60,
-  };
 };
 
 export default Index;
