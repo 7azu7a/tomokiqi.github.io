@@ -11,7 +11,7 @@ const Career: React.VFC = () => {
       bgSize="cover"
       bgAttachment="fixed"
       bgRepeat="no-repeat"
-      bgPos="-320px center"
+      bgPos="center"
       bgImage={`/${imagePath}`}
       w="100%"
       h={{ base: '30vh', lg: '100vh' }}
