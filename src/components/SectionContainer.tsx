@@ -19,8 +19,10 @@ const sectionContainerStyle = ({
   margin: 6rem auto;
   background-color: white;
   @media (max-width: 599px) {
-    width: 90%;
     flex-direction: column;
+  }
+  @media (max-width: 959px) {
+    width: 90%;
   }
 `;
 

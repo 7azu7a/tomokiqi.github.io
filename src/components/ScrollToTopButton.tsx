@@ -15,7 +15,7 @@ const buttonStyle = css`
   right: 8rem;
   z-index: 9999;
   cursor: pointer;
-  @media (max-width: 599px) {
+  @media (max-width: 959px) {
     bottom: 2rem;
     right: 2rem;
   } ;
