@@ -10,22 +10,15 @@ const globalStyle = css`
     line-height: 1.414rem;
     width: 100vw;
     min-height: 100vh;
+    font-size: 0.875rem;
   }
-`;
-
-const rootStyle = css`
-  overflow: hidden;
-  width: 100%;
-  min-height: 100%;
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Global styles={globalStyle} />
-      <div css={rootStyle}>
-        <Component {...pageProps} />
-      </div>
+      <Component {...pageProps} />
     </>
   );
 }

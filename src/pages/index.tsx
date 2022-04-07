@@ -1,61 +1,120 @@
 import { css } from '@emotion/react';
-import { TopSection } from 'components/TopSection';
-import { Billboard } from 'components/Billboard';
-import { SectionContainer } from 'components/SectionContainer';
-import { Footer } from 'components/Footer';
-import { siteContents } from 'constant/contents';
-import { ScrollToTopButton } from 'components/ScrollToTopButton';
-import Seo from 'components/Seo';
+import { useEffect, useState } from 'react';
+import { LogoConceptTitle } from 'components/LogoConcept/LogoConceptTitle';
+import { LogoConceptText } from 'components/LogoConcept/LogoConceptText';
+import { ProfileTitle } from 'components/Profile/ProfileTitle';
+import { ProfileText } from 'components/Profile/ProfileText';
+import { SkillTitle } from 'components/Skill/SkillTitle';
+import { SkillText } from 'components/Skill/SkillText';
+import { WorkTitle } from 'components/Work/WorkTitle';
+import { WorkText } from 'components/Work/WorkText';
+import { ContactTitle } from 'components/Contact/ContactTitle';
+import { ContactText } from 'components/Contact/ContactText';
+import { Section } from 'components/Section';
+import { Sns } from 'components/Sns';
 
-const mainContainerStyle = css`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100%;
-`;
+const ScrollTest = () => {
+  const rootStyle = css`
+    display: flex;
+    flex: 1;
+  `;
 
-const mainStyle = css`
-  background-color: white;
-  width: 100%;
-  z-index: 2;
-`;
+  const baseStyle = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    perspective: 1px;
+    position: fixed;
+    background-image: url('/paper.png');
+    background-size: cover;
+  `;
 
-const Index = () => {
+  const containerStyle = ({ scrollTop }: { scrollTop: number }) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: translateZ(${Math.ceil(scrollTop / 800)}px);
+    transition: transform 1s ease;
+  `;
+
+  const scrollRangeStyle = ({
+    sectionLength,
+    innerHeight,
+  }: {
+    sectionLength: number;
+    innerHeight: number;
+  }) => css`
+    z-index: -1;
+    visibility: hidden;
+    height: ${innerHeight + (sectionLength - 1) * 800}px;
+  `;
+
+  const footerStyle = css`
+    display: flex;
+    position: fixed;
+    font-size: 0.5rem;
+    padding: 0.25rem;
+    bottom: 0.5rem;
+    left: 0;
+    writing-mode: vertical-rl;
+  `;
+
+  const [scrollTop, setScrollTop] = useState(0);
+  const [innerHeight, setInnerHeight] = useState(0);
+
+  const sections = [
+    <LogoConceptTitle />,
+    <LogoConceptText />,
+    <ProfileTitle />,
+    <ProfileText />,
+    <SkillTitle />,
+    <SkillText />,
+    <WorkTitle />,
+    <WorkText />,
+    <ContactTitle />,
+    <ContactText />,
+  ];
+
+  const onScroll = () => {
+    const ele = document.scrollingElement ?? document.documentElement;
+    setScrollTop(ele.scrollTop);
+  };
+
+  useEffect(() => {
+    setInnerHeight(window.innerHeight);
+    document.addEventListener('scroll', () => {
+      onScroll();
+    });
+    return document.removeEventListener('scroll', () => {
+      onScroll();
+    });
+  }, []);
+
   return (
-    <>
-      <Seo
-        pageTitle="Portfolio｜Tomoki Saijo"
-        pageDescription="Tomoki Saijo's portfolio."
-        pagePath="https://portfolio.tomokiqi.com/"
-        pageImg="https://portfolio.tomokiqi.com/kyoto.jpg"
-        pageImgWidth={1280}
-        pageImgHeight={1280}
-      />
-      <div css={mainContainerStyle}>
-        <TopSection />
-        <Billboard />
-        <main css={mainStyle}>
-          {siteContents.map((contents, index) => {
-            return (
-              <SectionContainer
-                id={contents.id}
-                number={index + 1}
-                title={contents.title}
-                header={contents.contents.header}
-                text={contents.contents.text}
-                coverImageSrc={contents.imageSrc}
-                coverImageAlt={contents.imageAlt}
-                coverImagePos={index % 2 ? 'left' : 'right'}
-                key={contents.id}
-              />
-            );
+    <div css={rootStyle}>
+      <Sns />
+      <div css={baseStyle}>
+        <div
+          css={containerStyle({
+            scrollTop,
           })}
-        </main>
-        <Footer />
-        <ScrollToTopButton />
+        >
+          {sections.map((section, index) => (
+            <Section section={section} index={index} key={index} />
+          ))}
+        </div>
       </div>
-    </>
+      <div
+        css={scrollRangeStyle({ innerHeight, sectionLength: sections.length })}
+      ></div>
+      <div css={footerStyle}>&copy;2022 Tomoki Saijo</div>
+    </div>
   );
 };
 
-export default Index;
+export default ScrollTest;

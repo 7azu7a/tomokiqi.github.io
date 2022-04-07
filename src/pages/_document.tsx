@@ -1,9 +1,15 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
+import { css } from '@emotion/react';
 
 export default class Document extends NextDocument {
   render() {
+    const htmlStyle = css`
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    `;
+
     return (
-      <Html>
+      <Html css={htmlStyle}>
         <Head>
           <link
             href="https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&subset=japanese"
