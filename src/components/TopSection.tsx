@@ -3,7 +3,6 @@ import { Image } from 'stories/Image';
 import { Header } from 'stories/Header';
 import { siteContents } from 'constant/contents';
 import Link from 'next/link';
-import { Paragraph } from 'stories/Paragraph';
 import { FadeIn } from './FadeIn';
 
 const topSectionStyle = css`
@@ -39,6 +38,10 @@ const menuItemStyle = css`
   cursor: pointer;
 `;
 
+const menuItemHeaderEnStyle = css`
+  font-size: 0.5rem;
+`;
+
 export const TopSection = () => {
   return (
     <section css={topSectionStyle} id="top">
@@ -57,7 +60,7 @@ export const TopSection = () => {
             <Link href={`/#${content.id}`} key={content.id}>
               <div css={menuItemStyle}>
                 <Header text={content.title} isPrimary={false} />
-                <Paragraph text={content.titleEn} />
+                <span css={menuItemHeaderEnStyle}>{content.titleEn}</span>
               </div>
             </Link>
           ))}

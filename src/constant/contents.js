@@ -37,7 +37,7 @@ export const siteContents = [
     title: '創ったもの',
     titleEn: 'My Work',
     contents: {
-      header: 'HP制作',
+      header: 'ホームページなど',
       text: '2022年に知人の紹介で写真展のホームページを作成することになりました。LINE で会話させていただきながら UI デザイン、ページ制作、文言作成から画像編集までワンストップでの対応となります。開発ツールとしては STUDIO を利用しました。また、今ご覧いただいている自身のホームページは TypeScript、NextJS と Emotion を利用して開発し、GitHub Actions により Vercel へホスティングしています。',
     },
     imageSrc: '/junkfoodgirl-lp.jpg',
