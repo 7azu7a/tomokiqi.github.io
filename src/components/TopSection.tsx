@@ -13,6 +13,7 @@ const topSectionStyle = css`
   padding-top: 4rem;
   background-color: white;
   z-index: 2;
+  background-image: url('/paper.png');
   @media (max-width: 599px) {
     padding-top: 2rem;
   }
