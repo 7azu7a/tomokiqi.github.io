@@ -14,6 +14,7 @@ const topSectionStyle = css`
   background-color: white;
   z-index: 2;
   background-image: url('/paper.png');
+  background-size: cover;
   @media (max-width: 599px) {
     padding-top: 2rem;
   }
