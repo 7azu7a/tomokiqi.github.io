@@ -11,10 +11,9 @@ const topSectionStyle = css`
   align-items: center;
   width: 100%;
   padding-top: 4rem;
-  background-color: white;
-  z-index: 2;
   background-image: url('/paper.png');
   background-size: cover;
+  z-index: 2;
   @media (max-width: 599px) {
     padding-top: 2rem;
   }
