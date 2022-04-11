@@ -40,7 +40,7 @@ export const siteContents = [
       header: 'ホームページなど',
       text: '2022年に知人の紹介で写真展のホームページを作成することになりました。LINEで会話させていただきながらUIデザイン、ページ制作、文言作成から画像編集までワンストップでの対応となります。開発ツールとしてはSTUDIOを利用しました。また、今ご覧いただいている自身のホームページはTypeScript、NextJSとEmotionを利用して開発し、GitHub ActionsによりVercelへホスティングしています。',
     },
-    imageSrc: '/junkfoodgirl-lp.jpg',
+    imageSrc: '/junkfoodgirl.png',
     imageAlt: 'work image',
   },
   {
