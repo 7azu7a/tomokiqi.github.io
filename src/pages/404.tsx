@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import { Footer } from 'components/Footer';
 import Link from 'next/link';
 import { Header } from 'stories/Header';
 import { Image } from 'stories/Image';
@@ -27,15 +26,21 @@ const notFoundMessageStyle = css`
 `;
 
 const anchorStyle = css`
-  color: #89c3eb;
+  color: #a0d8ef;
+  text-decoration: underline;
   cursor: pointer;
 `;
 
-const footerContainerStyle = css`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 9999;
+const footerStyle = css`
+  color: white;
+  z-index: 2;
+  display: flex;
+  position: fixed;
+  font-size: 0.5rem;
+  padding: 0.25rem;
+  bottom: 0.5rem;
+  left: 0;
+  writing-mode: vertical-rl;
 `;
 
 const NotFound = () => {
@@ -48,10 +53,8 @@ const NotFound = () => {
           <a css={anchorStyle}>トップページへ戻る</a>
         </Link>
       </div>
-      <Image src="/kyoto-404.jpg" alt="logo" objectFit="cover" />
-      <div css={footerContainerStyle}>
-        <Footer />
-      </div>
+      <Image src="/paper.png" alt="logo" objectFit="cover" />
+      <div css={footerStyle}>&copy;2022 Tomoki Saijo</div>
     </div>
   );
 };
