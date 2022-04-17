@@ -52,7 +52,7 @@ export const LogoConceptTitle = () => {
             blurDataURL="/logo.svg"
           />
         </div>
-        <h2 css={headerStyle}>創る喜び</h2>
+        <h1 css={headerStyle}>創る喜び</h1>
       </div>
       <div css={imageWrapperStyle}>
         <Image

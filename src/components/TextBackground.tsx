@@ -14,8 +14,8 @@ export const TextBackground = () => {
         #f8fbf8 99%
       ),
       radial-gradient(closest-side, transparent 99%, #f8fbf8 99%);
-    background-size: 10rem 10rem;
-    background-position: 0 0, 5rem 5rem;
+    background-size: 16rem 16rem;
+    background-position: 4rem 0rem, 12rem 8rem;
     background-repeat: repeat;
   `;
 

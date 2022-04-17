@@ -12,6 +12,8 @@ import { ContactTitle } from 'components/Contact/ContactTitle';
 import { ContactText } from 'components/Contact/ContactText';
 import { Section } from 'components/Section';
 import { Sns } from 'components/Sns';
+import Image from 'next/image';
+import Seo from 'components/Seo';
 
 const ScrollTest = () => {
   const rootStyle = css`
@@ -27,8 +29,13 @@ const ScrollTest = () => {
     height: 100vh;
     perspective: 1px;
     position: fixed;
-    background-image: url('/paper.png');
-    background-size: cover;
+  `;
+
+  const backgroundStyle = css`
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: -9999;
   `;
 
   const containerStyle = ({ scrollTop }: { scrollTop: number }) => css`
@@ -96,24 +103,45 @@ const ScrollTest = () => {
   }, []);
 
   return (
-    <div css={rootStyle}>
-      <Sns />
-      <div css={baseStyle}>
-        <div
-          css={containerStyle({
-            scrollTop,
-          })}
-        >
-          {sections.map((section, index) => (
-            <Section section={section} index={index} key={index} />
-          ))}
+    <>
+      <Seo
+        pageTitle="Tomoki Saijo | Portfolio"
+        pageDescription="紹介制でSTUDIOやJavaScriptによるホームページ制作やWebアプリ開発に協力している西條友喜のポートフォリオです。普段はフロントエンドエンジニアとして活動していますが、WebデザインやCSSアニメーションなどにも興味があります。"
+        pagePath="https://portfolio.tomokiqi.com/"
+        pageImg="https://portfolio.tomokiqi.com/logo.jpg"
+        pageImgHeight={1280}
+        pageImgWidth={1280}
+      />
+      <div css={rootStyle}>
+        <Sns />
+        <div css={baseStyle}>
+          <div css={backgroundStyle}>
+            <Image
+              src="/paper.png"
+              alt="background image"
+              objectFit="cover"
+              layout="fill"
+            />
+          </div>
+          <div
+            css={containerStyle({
+              scrollTop,
+            })}
+          >
+            {sections.map((section, index) => (
+              <Section section={section} index={index} key={index} />
+            ))}
+          </div>
         </div>
+        <div
+          css={scrollRangeStyle({
+            innerHeight,
+            sectionLength: sections.length,
+          })}
+        ></div>
+        <div css={footerStyle}>&copy;2022 Tomoki Saijo</div>
       </div>
-      <div
-        css={scrollRangeStyle({ innerHeight, sectionLength: sections.length })}
-      ></div>
-      <div css={footerStyle}>&copy;2022 Tomoki Saijo</div>
-    </div>
+    </>
   );
 };
 

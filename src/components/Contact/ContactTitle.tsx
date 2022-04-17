@@ -39,7 +39,7 @@ export const ContactTitle = () => {
           layout="fill"
         />
       </div>
-      <h3 css={headerStyle}>お問い合わせ</h3>
+      <h2 css={headerStyle}>お問い合わせ</h2>
     </div>
   );
 };

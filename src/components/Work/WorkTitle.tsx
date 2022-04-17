@@ -28,7 +28,7 @@ export const WorkTitle = () => {
 
   return (
     <div css={containerStyle}>
-      <h3 css={headerStyle}>創ったもの</h3>
+      <h2 css={headerStyle}>創ったもの</h2>
       <div css={imageWrapperStyle}>
         <Image
           src="/choju_kaeru.svg"

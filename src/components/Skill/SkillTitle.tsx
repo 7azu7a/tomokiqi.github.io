@@ -33,7 +33,7 @@ export const SkillTitle = () => {
 
   return (
     <div css={containerStyle}>
-      <h3 css={headerStyle}>力になれること</h3>
+      <h2 css={headerStyle}>力になれること</h2>
       <div css={imageWrapperStyle}>
         <Image
           src="/choju_working.svg"

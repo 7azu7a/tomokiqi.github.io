@@ -36,7 +36,7 @@ export const ProfileTitle = () => {
           layout="fill"
         />
       </div>
-      <h3 css={headerStyle}>私の名は。</h3>
+      <h2 css={headerStyle}>私は誰</h2>
     </div>
   );
 };
