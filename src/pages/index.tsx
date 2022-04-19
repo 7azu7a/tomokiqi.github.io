@@ -1,19 +1,14 @@
 import { css } from '@emotion/react';
 import { useEffect, useState } from 'react';
-import { LogoConceptTitle } from 'components/LogoConcept/LogoConceptTitle';
-import { LogoConceptText } from 'components/LogoConcept/LogoConceptText';
-import { ProfileTitle } from 'components/Profile/ProfileTitle';
-import { ProfileText } from 'components/Profile/ProfileText';
-import { SkillTitle } from 'components/Skill/SkillTitle';
-import { SkillText } from 'components/Skill/SkillText';
-import { WorkTitle } from 'components/Work/WorkTitle';
-import { WorkText } from 'components/Work/WorkText';
-import { ContactTitle } from 'components/Contact/ContactTitle';
-import { ContactText } from 'components/Contact/ContactText';
+import { LogoConcept } from 'components/LogoConcept';
+import { Profile } from 'components/Profile';
+import { Skill } from 'components/Skill';
+import { Work } from 'components/Work';
+import { Contact } from 'components/Contact';
 import { Section } from 'components/Section';
 import { Sns } from 'components/Sns';
-import Image from 'next/image';
 import Seo from 'components/Seo';
+import { Top } from 'components/Top';
 
 const ScrollTest = () => {
   const rootStyle = css`
@@ -29,13 +24,7 @@ const ScrollTest = () => {
     height: 100vh;
     perspective: 1px;
     position: fixed;
-  `;
-
-  const backgroundStyle = css`
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    z-index: -9999;
+    background-color: #fbfaf5;
   `;
 
   const containerStyle = ({ scrollTop }: { scrollTop: number }) => css`
@@ -74,17 +63,13 @@ const ScrollTest = () => {
   const [scrollTop, setScrollTop] = useState(0);
   const [innerHeight, setInnerHeight] = useState(0);
 
-  const sections = [
-    <LogoConceptTitle />,
-    <LogoConceptText />,
-    <ProfileTitle />,
-    <ProfileText />,
-    <SkillTitle />,
-    <SkillText />,
-    <WorkTitle />,
-    <WorkText />,
-    <ContactTitle />,
-    <ContactText />,
+  const sectionFns = [
+    (index: number) => <Top index={index} />,
+    (index: number) => <LogoConcept index={index} />,
+    (index: number) => <Profile index={index} />,
+    (index: number) => <Skill index={index} />,
+    (index: number) => <Work index={index} />,
+    (index: number) => <Contact index={index} />,
   ];
 
   const onScroll = () => {
@@ -115,28 +100,20 @@ const ScrollTest = () => {
       <div css={rootStyle}>
         <Sns />
         <div css={baseStyle}>
-          <div css={backgroundStyle}>
-            <Image
-              src="/paper.png"
-              alt="background image"
-              objectFit="cover"
-              layout="fill"
-            />
-          </div>
           <div
             css={containerStyle({
               scrollTop,
             })}
           >
-            {sections.map((section, index) => (
-              <Section section={section} index={index} key={index} />
+            {sectionFns.map((sectionFn, index) => (
+              <Section sectionFn={sectionFn} index={index} key={index} />
             ))}
           </div>
         </div>
         <div
           css={scrollRangeStyle({
             innerHeight,
-            sectionLength: sections.length,
+            sectionLength: sectionFns.length,
           })}
         ></div>
         <div css={footerStyle}>&copy;2022 Tomoki Saijo</div>
