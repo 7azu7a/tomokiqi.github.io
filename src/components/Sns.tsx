@@ -47,30 +47,30 @@ export const Sns = () => {
       <div css={snsIconStyle} className=".ig">
         <Link href="https://www.instagram.com/gram____tomo/">
           <a target="_blank">
-            <FaInstagramSquare size="2rem" color="white" />
+            <FaInstagramSquare size="2rem" color="#fff" />
           </a>
         </Link>
       </div>
-      <div css={snsIconStyle}>
-        <Link href="https://www.wantedly.com/id/tsaijo">
-          <a target="_blank">
-            <div css={snsIconStyle}>
-              <Image
-                src="/Wantedly_Mark_Wht.svg"
-                alt="wantedly logo"
-                objectFit="contain"
-                layout="fill"
-                placeholder="blur"
-                blurDataURL="/Wantedly_Mark_Wht.svg"
-              />
-            </div>
-          </a>
-        </Link>
-      </div>
+      {/* <div css={snsIconStyle}> */}
+      <Link href="https://www.wantedly.com/id/tsaijo">
+        <a target="_blank">
+          <div css={snsIconStyle}>
+            <Image
+              src="/Wantedly_Mark_Wht.svg"
+              alt="wantedly logo"
+              objectFit="contain"
+              layout="fill"
+              placeholder="blur"
+              blurDataURL="/Wantedly_Mark_Wht.svg"
+            />
+          </div>
+        </a>
+      </Link>
+      {/* </div> */}
       <div css={snsIconStyle}>
         <Link href="https://github.com/tomokiqi">
           <a target="_blank">
-            <FaGithub size="2rem" color="white" />
+            <FaGithub size="2rem" color="#fff" />
           </a>
         </Link>
       </div>
