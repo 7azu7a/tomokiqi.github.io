@@ -10,7 +10,7 @@ import { Sns } from 'components/Sns';
 import Seo from 'components/Seo';
 import { Top } from 'components/Top';
 
-const ScrollTest = () => {
+const Home = () => {
   const rootStyle = css`
     display: flex;
     flex: 1;
@@ -122,4 +122,4 @@ const ScrollTest = () => {
   );
 };
 
-export default ScrollTest;
+export default Home;
