@@ -58,9 +58,15 @@ export const Profile: React.VFC<ProfileProps> = ({ index = 0 }) => {
     width: 100%;
   `;
 
-  const insertImageStyle = css`
+  const insertLeftImageStyle = css`
     ${imageStyle}
     height: 30vh;
+    width: 50%;
+  `;
+
+  const insertRightImageStyle = css`
+    ${imageStyle}
+    height: 10vh;
     width: 50%;
   `;
 
@@ -111,7 +117,7 @@ export const Profile: React.VFC<ProfileProps> = ({ index = 0 }) => {
         </div>
       </div>
       <div css={insertContainerStyle}>
-        <div css={insertImageStyle}>
+        <div css={insertLeftImageStyle}>
           <Image
             src="/choju_usagi.svg"
             alt="insert"
@@ -119,6 +125,16 @@ export const Profile: React.VFC<ProfileProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/choju_usagi.svg"
+          />
+        </div>
+        <div css={insertRightImageStyle}>
+          <Image
+            src="/choju_kaeru.svg"
+            alt="insert"
+            objectFit="contain"
+            layout="fill"
+            placeholder="blur"
+            blurDataURL="/choju_kaeru.svg"
           />
         </div>
       </div>

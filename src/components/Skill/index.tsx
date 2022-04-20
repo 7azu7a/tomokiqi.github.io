@@ -60,7 +60,7 @@ export const Skill: React.VFC<SkillProps> = ({ index = 0 }) => {
 
   const insertImageStyle = css`
     ${imageStyle}
-    height: 50vh;
+    height: 30vh;
     width: 50%;
   `;
 
@@ -114,12 +114,12 @@ export const Skill: React.VFC<SkillProps> = ({ index = 0 }) => {
       <div css={insertContainerStyle}>
         <div css={insertImageStyle}>
           <Image
-            src="/choju_kusa.svg"
+            src="/choju_iwa.svg"
             alt="insert"
             objectFit="contain"
             layout="fill"
             placeholder="blur"
-            blurDataURL="/choju_kusa.svg"
+            blurDataURL="/choju_iwa.svg"
           />
         </div>
       </div>
