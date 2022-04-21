@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 import { useInView } from 'hooks/useInView';
 import Image from 'next/image';
 
@@ -59,10 +59,22 @@ export const Work: React.VFC<WorkProps> = ({ index = 0 }) => {
     width: 100%;
   `;
 
+  const insertAnimation = keyframes`
+    0%, 100% {
+      transform: rotateZ(-5deg);
+    }
+    50%{
+      transform: rotateZ(5deg);
+    }
+`;
+
   const insertImageStyle = css`
     ${imageStyle}
     height: 33vh;
     width: 100%;
+    animation-name: ${insertAnimation};
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
   `;
 
   const textStyle = css`
