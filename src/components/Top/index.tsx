@@ -1,16 +1,21 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
+import { useInView } from 'hooks/useInView';
 
 type TopProps = {
-  index?: number;
+  index: number;
 };
 
-export const Top: React.VFC<TopProps> = () => {
+export const Top: React.VFC<TopProps> = ({ index }) => {
+  const [inView] = useInView(index);
+
   const containerStyle = css`
     display: flex;
     align-items: flex-start;
     width: 100%;
     height: 100%;
+    opacity: ${inView ? 1 : 0};
+    transition: opacity 1s ease;
   `;
 
   const titleStyle = css`
