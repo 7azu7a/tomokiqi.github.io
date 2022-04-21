@@ -101,6 +101,7 @@ export const Work: React.VFC<WorkProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/work.jpg"
+            priority={true}
           />
         </div>
         <div css={textStyle}>
@@ -133,6 +134,7 @@ export const Work: React.VFC<WorkProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/choju_working.svg"
+            priority={true}
           />
         </div>
       </div>

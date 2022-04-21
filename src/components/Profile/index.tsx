@@ -105,6 +105,7 @@ export const Profile: React.VFC<ProfileProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/profile.jpg"
+            priority={true}
           />
         </div>
         <div css={textStyle}>
@@ -137,6 +138,7 @@ export const Profile: React.VFC<ProfileProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/choju_usagi.svg"
+            priority={true}
           />
         </div>
         <div css={insertRightImageStyle}>
@@ -147,6 +149,7 @@ export const Profile: React.VFC<ProfileProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/choju_kaeru.svg"
+            priority={true}
           />
         </div>
       </div>

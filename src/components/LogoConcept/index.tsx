@@ -93,6 +93,7 @@ export const LogoConcept: React.VFC<LogoConceptProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/logo.jpg"
+            priority={true}
           />
         </div>
         <div css={textStyle}>
@@ -124,6 +125,7 @@ export const LogoConcept: React.VFC<LogoConceptProps> = ({ index = 0 }) => {
           layout="fill"
           placeholder="blur"
           blurDataURL="/choju_running.svg"
+          priority={true}
         />
       </div>
     </section>

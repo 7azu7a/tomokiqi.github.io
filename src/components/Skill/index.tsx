@@ -88,6 +88,7 @@ export const Skill: React.VFC<SkillProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/skill.jpg"
+            priority={true}
           />
         </div>
         <div css={textStyle}>
@@ -120,6 +121,7 @@ export const Skill: React.VFC<SkillProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/choju_iwa.svg"
+            priority={true}
           />
         </div>
       </div>
