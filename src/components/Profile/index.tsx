@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 import { useInView } from 'hooks/useInView';
 import Image from 'next/image';
 
@@ -58,10 +58,22 @@ export const Profile: React.VFC<ProfileProps> = ({ index = 0 }) => {
     width: 100%;
   `;
 
+  const insertLeftAnimation = keyframes`
+    0%, 100% {
+      transform: translateY(0rem);
+    }
+    50% {
+      transform: translateY(1rem);
+    }
+  `;
+
   const insertLeftImageStyle = css`
     ${imageStyle}
     height: 30vh;
     width: 50%;
+    animation-name: ${insertLeftAnimation};
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
   `;
 
   const insertRightImageStyle = css`
