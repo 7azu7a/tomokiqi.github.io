@@ -50,6 +50,7 @@ export const Top: React.VFC<TopProps> = ({ index }) => {
             objectFit="contain"
             placeholder="blur"
             blurDataURL="/logo.svg"
+            priority={true}
           />
         </div>
         <h1 css={headerStyle}>創る喜び</h1>

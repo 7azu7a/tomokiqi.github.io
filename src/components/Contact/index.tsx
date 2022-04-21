@@ -89,6 +89,7 @@ export const Contact: React.VFC<ContactProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/contact.jpg"
+            priority={true}
           />
         </div>
         <div css={textStyle}>
@@ -121,6 +122,7 @@ export const Contact: React.VFC<ContactProps> = ({ index = 0 }) => {
             layout="fill"
             placeholder="blur"
             blurDataURL="/choju_yama.svg"
+            priority={true}
           />
         </div>
       </div>
