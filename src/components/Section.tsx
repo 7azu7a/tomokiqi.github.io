@@ -12,6 +12,7 @@ export const Section: React.VFC<SectionProps> = ({ index, sectionFn }) => {
     align-items: center;
     width: 100%;
     height: 100%;
+    max-width: 960px;
     padding: 2rem 1rem;
     transform: translateZ(-${index}px);
     position: absolute;
