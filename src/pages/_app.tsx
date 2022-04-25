@@ -3,14 +3,21 @@ import { AppProps } from 'next/app';
 import './reset.css';
 
 const globalStyle = css`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   body {
-    color: #333;
-    font-family: 'Noto Serif JP', serif;
-    letter-spacing: 0.1414rem;
-    line-height: 1.414rem;
-    width: 100vw;
-    min-height: 100vh;
-    font-size: 0.875rem;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1024px;
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
   }
 `;
 

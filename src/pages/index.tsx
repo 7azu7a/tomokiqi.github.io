@@ -1,91 +1,85 @@
-import { css } from '@emotion/react';
-import { useEffect, useState } from 'react';
-import { LogoConcept } from 'components/LogoConcept';
-import { Profile } from 'components/Profile';
-import { Skill } from 'components/Skill';
-import { Work } from 'components/Work';
-import { Contact } from 'components/Contact';
-import { Section } from 'components/Section';
-import { Sns } from 'components/Sns';
+import { useState } from 'react';
+import Image from 'next/image';
 import Seo from 'components/Seo';
-import { Top } from 'components/Top';
+import { css } from '@emotion/react';
+import { FrontSide } from 'components/FrontSide';
+import { BackSide } from 'components/BackSide';
 
-const Home = () => {
-  const rootStyle = css`
-    display: flex;
-    flex: 1;
-  `;
-
-  const baseStyle = css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    perspective: 1px;
-    position: fixed;
-    background-color: #fbfaf5;
-  `;
-
-  const containerStyle = ({ scrollTop }: { scrollTop: number }) => css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
+const Index = () => {
+  const containerStyle = (isReverse: boolean) => css`
+    width: 70vw;
+    height: calc(70vw / 1.618);
+    position: relative;
     transform-style: preserve-3d;
-    transform: translateZ(${Math.ceil(scrollTop / 800)}px);
-    transition: transform 1s ease;
+    transform: rotateY(${isReverse ? 180 : 0}deg);
+    transition: transform 2s ease-in-out;
+    box-shadow: 0.25rem 0.25rem 0.5rem #333;
+    border-radius: 1rem;
+    @media (max-width: 767px) {
+      width: 90vw;
+      height: calc(90vw / 1.618);
+    }
   `;
 
-  const scrollRangeStyle = ({
-    sectionLength,
-    innerHeight,
-  }: {
-    sectionLength: number;
-    innerHeight: number;
-  }) => css`
+  const backgroundStyle = css`
+    width: 100%;
+    height: 100vh;
     z-index: -1;
-    visibility: hidden;
-    height: ${innerHeight + (sectionLength - 1) * 800}px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  `;
+
+  const sideStyle = css`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+    background-color: #fff;
+    font-family: '游明朝体', 'Yu Mincho', YuMincho, 'ヒラギノ明朝 Pro',
+      'Hiragino Mincho Pro', 'MS P明朝', 'MS PMincho', serif;
+  `;
+
+  const frontSideStyle = css`
+    ${sideStyle}
+    z-index: 0;
+  `;
+
+  const backSideStyle = css`
+    ${sideStyle}
+    transform: rotateY(180deg);
+    z-index: 0;
+  `;
+
+  const contentStyle = css`
+    color: #333;
+    width: 100%;
+    height: 100%;
+  `;
+
+  const frontContentStyle = css`
+    ${contentStyle}
+    transform: translateZ(4rem);
+    z-index: 2;
   `;
 
   const footerStyle = css`
+    color: #333;
     display: flex;
+    justify-content: center;
     position: fixed;
-    font-size: 0.5rem;
-    padding: 0.25rem;
-    bottom: 0.5rem;
+    bottom: 0.62rem;
     left: 0;
-    writing-mode: vertical-rl;
+    width: 100%;
+    font-size: 0.62rem;
+    letter-spacing: 0.09rem;
+    font-family: '游明朝体', 'Yu Mincho', YuMincho, 'ヒラギノ明朝 Pro',
+      'Hiragino Mincho Pro', 'MS P明朝', 'MS PMincho', serif;
   `;
 
-  const [scrollTop, setScrollTop] = useState(0);
-  const [innerHeight, setInnerHeight] = useState(0);
-
-  const sectionFns = [
-    (index: number) => <Top index={index} />,
-    (index: number) => <LogoConcept index={index} />,
-    (index: number) => <Profile index={index} />,
-    (index: number) => <Skill index={index} />,
-    (index: number) => <Work index={index} />,
-    (index: number) => <Contact index={index} />,
-  ];
-
-  const onScroll = () => {
-    const ele = document.scrollingElement ?? document.documentElement;
-    setScrollTop(ele.scrollTop);
-  };
-
-  useEffect(() => {
-    setInnerHeight(window.innerHeight);
-    document.addEventListener('scroll', () => {
-      onScroll();
-    });
-    return document.removeEventListener('scroll', () => {
-      onScroll();
-    });
-  }, []);
+  const [isReverse, setIsReverse] = useState(false);
 
   return (
     <>
@@ -97,29 +91,35 @@ const Home = () => {
         pageImgHeight={1280}
         pageImgWidth={1280}
       />
-      <div css={rootStyle}>
-        <Sns />
-        <div css={baseStyle}>
-          <div
-            css={containerStyle({
-              scrollTop,
-            })}
-          >
-            {sectionFns.map((sectionFn, index) => (
-              <Section sectionFn={sectionFn} index={index} key={index} />
-            ))}
-          </div>
-        </div>
-        <div
-          css={scrollRangeStyle({
-            innerHeight,
-            sectionLength: sectionFns.length,
-          })}
-        ></div>
-        <div css={footerStyle}>&copy;2022 Tomoki Saijo</div>
+      <div css={backgroundStyle}>
+        <Image
+          src="/background.jpg"
+          alt="background"
+          layout="fill"
+          objectFit="cover"
+          priority
+          placeholder="blur"
+          blurDataURL="/background.jpg"
+        />
       </div>
+      <main
+        css={containerStyle(isReverse)}
+        onClick={() => setIsReverse(!isReverse)}
+      >
+        <section css={frontSideStyle}>
+          <article css={frontContentStyle}>
+            <FrontSide />
+          </article>
+        </section>
+        <section css={backSideStyle}>
+          <article css={contentStyle}>
+            <BackSide />
+          </article>
+        </section>
+      </main>
+      <div css={footerStyle}>&copy;2022 Tomoki Saijo</div>
     </>
   );
 };
 
-export default Home;
+export default Index;
