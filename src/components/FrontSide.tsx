@@ -9,7 +9,7 @@ const containerStyle = css`
   padding: 15%;
   width: 100%;
   height: 100%;
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     padding: 2.618rem;
   }
 `;
@@ -37,7 +37,11 @@ const nameLetterStyle = css`
   font-size: 2.618rem;
   font-weight: 600;
   line-height: 4.236rem;
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
+    font-size: 1.618rem;
+    line-height: 2.618rem;
+  }
+  @media (max-width: 599px) {
     font-size: 1rem;
     line-height: 1.618rem;
   }
@@ -57,7 +61,7 @@ const infoStyle = css`
   font-weight: 400;
   letter-spacing: 0.1rem;
   color: #999;
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     font-size: 0.62rem;
   }
 `;

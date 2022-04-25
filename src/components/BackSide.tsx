@@ -101,7 +101,7 @@ export const BackSide = () => {
     font-weight: 400;
     letter-spacing: 0.236rem;
     color: #fff;
-    @media (max-width: 767px) {
+    @media (max-width: 599px) {
       letter-spacing: 0.09rem;
     }
   `;
