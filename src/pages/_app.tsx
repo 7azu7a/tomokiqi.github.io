@@ -18,6 +18,8 @@ const globalStyle = css`
     transform-style: preserve-3d;
     position: relative;
     overflow: hidden;
+    color: #333;
+    font-family: 'FuturaPT', sans-serif;
   }
 `;
 

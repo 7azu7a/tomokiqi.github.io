@@ -9,8 +9,8 @@ const containerStyle = css`
   padding: 15%;
   width: 100%;
   height: 100%;
-  @media (max-width: 767px) {
-    padding: 2.618rem;
+  @media (max-width: 599px) {
+    padding: 2.5rem;
   }
 `;
 
@@ -34,12 +34,15 @@ const nameStyle = css`
 `;
 
 const nameLetterStyle = css`
-  font-size: 2.618rem;
-  font-weight: 600;
-  line-height: 4.236rem;
+  font-size: 2rem;
+  line-height: 4rem;
   @media (max-width: 767px) {
+    font-size: 1.5rem;
+    line-height: 3rem;
+  }
+  @media (max-width: 599px) {
     font-size: 1rem;
-    line-height: 1.618rem;
+    line-height: 1.5em;
   }
   &.adjust {
     padding-left: 0.25rem;
@@ -54,12 +57,13 @@ const infoContainerStyle = (justifyContent?: string) => css`
 
 const infoStyle = css`
   font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.1rem;
-  color: #999;
+  letter-spacing: 0.25rem;
+  color: #666;
   @media (max-width: 767px) {
-    font-size: 0.62rem;
+    letter-spacing: 0.1rem;
+    font-size: 0.75rem;
   }
+  font-family: 'FuturaPTLight';
 `;
 
 const subContentsStyle = css`
@@ -82,11 +86,11 @@ export const FrontSide = () => {
         </div>
         <div css={nameStyle}>
           <span css={nameLetterStyle}>T</span>
-          <span css={nameLetterStyle}>O</span>
-          <span css={nameLetterStyle}>M</span>
-          <span css={nameLetterStyle}>O</span>
-          <span css={nameLetterStyle}>K</span>
-          <span css={nameLetterStyle}>I</span>
+          <span css={nameLetterStyle}>o</span>
+          <span css={nameLetterStyle}>m</span>
+          <span css={nameLetterStyle}>o</span>
+          <span css={nameLetterStyle}>k</span>
+          <span css={nameLetterStyle}>i</span>
           <span css={nameLetterStyle}>&nbsp;</span>
           <span css={nameLetterStyle}>S</span>
           <span css={nameLetterStyle}>A</span>

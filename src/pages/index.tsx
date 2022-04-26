@@ -38,8 +38,6 @@ const Index = () => {
     backface-visibility: hidden;
     border-radius: 1rem;
     background-color: #fff;
-    font-family: '游明朝体', 'Yu Mincho', YuMincho, 'ヒラギノ明朝 Pro',
-      'Hiragino Mincho Pro', 'MS P明朝', 'MS PMincho', serif;
   `;
 
   const frontSideStyle = css`
@@ -54,7 +52,6 @@ const Index = () => {
   `;
 
   const contentStyle = css`
-    color: #333;
     width: 100%;
     height: 100%;
   `;
@@ -66,17 +63,15 @@ const Index = () => {
   `;
 
   const footerStyle = css`
-    color: #333;
     display: flex;
     justify-content: center;
     position: fixed;
-    bottom: 0.62rem;
+    bottom: 0.5rem;
     left: 0;
     width: 100%;
-    font-size: 0.62rem;
-    letter-spacing: 0.09rem;
-    font-family: '游明朝体', 'Yu Mincho', YuMincho, 'ヒラギノ明朝 Pro',
-      'Hiragino Mincho Pro', 'MS P明朝', 'MS PMincho', serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.1rem;
+    font-family: 'FuturaPTLight';
   `;
 
   const [isReverse, setIsReverse] = useState(false);
@@ -84,7 +79,7 @@ const Index = () => {
   return (
     <>
       <Seo
-        pageTitle="Tomoki Saijo | Portfolio"
+        pageTitle="Tomoki Saijo ｜ Portfolio"
         pageDescription="紹介制でSTUDIOやJavaScriptによるホームページ制作やWebアプリ開発に協力している西條友喜のポートフォリオです。普段はフロントエンドエンジニアとして活動していますが、WebデザインやCSSアニメーションなどにも興味があります。"
         pagePath="https://portfolio.tomokiqi.com/"
         pageImg="https://portfolio.tomokiqi.com/logo.jpg"

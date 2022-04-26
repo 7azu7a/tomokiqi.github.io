@@ -5,9 +5,9 @@ import { useWindowSize } from 'react-use';
 
 export const BackSide = () => {
   const contents = [
-    { image: 'logo.jpg', title: 'Logo Design' },
     { image: 'front-end.png', title: 'Front End Development' },
     { image: 'home-page.png', title: 'Home Page Creation' },
+    { image: 'web-design.png', title: 'Web UI Design' },
   ];
 
   const containerStyle = css`
@@ -54,7 +54,6 @@ export const BackSide = () => {
     justify-content: center;
     align-items: center;
     color: #fff;
-    text-shadow: 0px 0px 4px #333;
     position: absolute;
     z-index: 2;
     width: 100%;
@@ -91,7 +90,6 @@ export const BackSide = () => {
       height: 1px;
       background-color: white;
       position: absolute;
-      box-shadow: 0px 0px 4px #333;
     }
   `;
 
@@ -99,10 +97,10 @@ export const BackSide = () => {
     width: 70%;
     font-size: 1rem;
     font-weight: 400;
-    letter-spacing: 0.236rem;
+    letter-spacing: 0.25rem;
     color: #fff;
     @media (max-width: 767px) {
-      letter-spacing: 0.09rem;
+      letter-spacing: 0.1rem;
     }
   `;
 
