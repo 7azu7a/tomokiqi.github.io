@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import Image from 'next/image';
-import Seo from 'components/Seo';
 import { css } from '@emotion/react';
 import { FrontSide } from 'components/FrontSide';
 import { BackSide } from 'components/BackSide';
+import Layout from 'components/Layout';
 
 const Index = () => {
   const containerStyle = (isReverse: boolean) => css`
@@ -19,15 +18,6 @@ const Index = () => {
       width: 90vw;
       height: calc(90vw / 1.618);
     }
-  `;
-
-  const backgroundStyle = css`
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
   `;
 
   const sideStyle = css`
@@ -62,41 +52,14 @@ const Index = () => {
     z-index: 2;
   `;
 
-  const footerStyle = css`
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    bottom: 0.5rem;
-    left: 0;
-    width: 100%;
-    font-size: 0.5rem;
-    letter-spacing: 0.1rem;
-    font-family: 'FuturaPTLight';
-  `;
-
   const [isReverse, setIsReverse] = useState(false);
 
   return (
-    <>
-      <Seo
-        pageTitle="Tomoki Saijo ｜ Portfolio"
-        pageDescription="紹介制でSTUDIOやJavaScriptによるホームページ制作やWebアプリ開発に協力している西條友喜のポートフォリオです。普段はフロントエンドエンジニアとして活動していますが、WebデザインやCSSアニメーションなどにも興味があります。"
-        pagePath="https://portfolio.tomokiqi.com/"
-        pageImg="https://portfolio.tomokiqi.com/logo.jpg"
-        pageImgHeight={1280}
-        pageImgWidth={1280}
-      />
-      <div css={backgroundStyle}>
-        <Image
-          src="/background.jpg"
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          priority
-          placeholder="blur"
-          blurDataURL="/background.jpg"
-        />
-      </div>
+    <Layout
+      pageTitle="Portfolio ｜ Tomoki Saijo"
+      pageDescription="紹介制でSTUDIOやJavaScriptによるホームページ制作やWebアプリ開発に協力している西條友喜のポートフォリオです。普段はフロントエンドエンジニアとして活動していますが、WebデザインやCSSアニメーションなどにも興味があります。"
+      pagePath="https://portfolio.tomokiqi.com/"
+    >
       <main
         css={containerStyle(isReverse)}
         onClick={() => setIsReverse(!isReverse)}
@@ -112,8 +75,7 @@ const Index = () => {
           </article>
         </section>
       </main>
-      <div css={footerStyle}>&copy;2022 Tomoki Saijo</div>
-    </>
+    </Layout>
   );
 };
 
