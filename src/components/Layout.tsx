@@ -1,9 +1,6 @@
-// import { useState } from 'react';
 import Image from 'next/image';
 import Seo from 'components/Seo';
 import { css } from '@emotion/react';
-// import { FrontSide } from 'components/FrontSide';
-// import { BackSide } from 'components/BackSide';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -20,21 +17,6 @@ const Layout: React.VFC<LayoutProps> = ({
   pagePath,
   pageImg,
 }) => {
-  // const containerStyle = (isReverse: boolean) => css`
-  //   width: 70vw;
-  //   height: calc(70vw / 1.618);
-  //   position: relative;
-  //   transform-style: preserve-3d;
-  //   transform: rotateY(${isReverse ? 180 : 0}deg);
-  //   transition: transform 2s ease-in-out;
-  //   box-shadow: 0.25rem 0.25rem 0.5rem #333;
-  //   border-radius: 1rem;
-  //   @media (max-width: 599px) {
-  //     width: 90vw;
-  //     height: calc(90vw / 1.618);
-  //   }
-  // `;
-
   const backgroundStyle = css`
     width: 100%;
     height: 100vh;
@@ -43,39 +25,6 @@ const Layout: React.VFC<LayoutProps> = ({
     top: 0;
     left: 0;
   `;
-
-  // const sideStyle = css`
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 100%;
-  //   transform-style: preserve-3d;
-  //   backface-visibility: hidden;
-  //   border-radius: 1rem;
-  //   background-color: #fff;
-  // `;
-
-  // const frontSideStyle = css`
-  //   ${sideStyle}
-  //   z-index: 0;
-  // `;
-
-  // const backSideStyle = css`
-  //   ${sideStyle}
-  //   transform: rotateY(180deg);
-  //   z-index: 0;
-  // `;
-
-  // const contentStyle = css`
-  //   color: #333;
-  //   width: 100%;
-  //   height: 100%;
-  // `;
-
-  // const frontContentStyle = css`
-  //   ${contentStyle}
-  //   transform: translateZ(4rem);
-  //   z-index: 2;
-  // `;
 
   const footerStyle = css`
     display: flex;
@@ -88,8 +37,6 @@ const Layout: React.VFC<LayoutProps> = ({
     letter-spacing: 0.1rem;
     font-family: 'FuturaPTLight', sans-serif;
   `;
-
-  // const [isReverse, setIsReverse] = useState(false);
 
   return (
     <>
@@ -110,23 +57,9 @@ const Layout: React.VFC<LayoutProps> = ({
           priority
           placeholder="blur"
           blurDataURL="/background.jpg"
+          quality={80}
         />
       </div>
-      {/* <main
-        css={containerStyle(isReverse)}
-        onClick={() => setIsReverse(!isReverse)}
-      >
-        <section css={frontSideStyle}>
-          <article css={frontContentStyle}>
-            <FrontSide />
-          </article>
-        </section>
-        <section css={backSideStyle}>
-          <article css={contentStyle}>
-            <BackSide />
-          </article>
-        </section>
-      </main> */}
       {children}
       <div css={footerStyle}>&copy;2022 Tomoki Saijo</div>
     </>
