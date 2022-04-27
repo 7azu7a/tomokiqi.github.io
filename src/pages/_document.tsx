@@ -5,6 +5,7 @@ export default class Document extends NextDocument {
     return (
       <Html>
         <Head>
+          <link rel="stylesheet" href="fonts/fonts.css" />
           <link
             href="https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&subset=japanese"
             rel="stylesheet"

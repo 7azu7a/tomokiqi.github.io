@@ -6,11 +6,11 @@ import React from 'react';
 const containerStyle = css`
   display: flex;
   flex-direction: column;
-  padding: 15%;
+  padding: 10%;
   width: 100%;
   height: 100%;
-  @media (max-width: 1024px) {
-    padding: 2.618rem;
+  @media (max-width: 599px) {
+    padding: 2rem;
   }
 `;
 
@@ -24,7 +24,6 @@ const mainContentsStyle = css`
   ${contentsStyle}
   flex-direction: column-reverse;
   justify-content: flex-end;
-  position: relative;
   width: 100%;
 `;
 
@@ -34,19 +33,15 @@ const nameStyle = css`
 `;
 
 const nameLetterStyle = css`
-  font-size: 2.618rem;
-  font-weight: 600;
-  line-height: 4.236rem;
+  font-size: 2rem;
+  line-height: 4rem;
   @media (max-width: 1024px) {
-    font-size: 1.618rem;
-    line-height: 2.618rem;
+    font-size: 1.5rem;
+    line-height: 3rem;
   }
   @media (max-width: 599px) {
     font-size: 1rem;
-    line-height: 1.618rem;
-  }
-  &.adjust {
-    padding-left: 0.25rem;
+    line-height: 1.5rem;
   }
 `;
 
@@ -58,11 +53,11 @@ const infoContainerStyle = (justifyContent?: string) => css`
 
 const infoStyle = css`
   font-size: 1rem;
-  font-weight: 400;
   letter-spacing: 0.1rem;
   color: #999;
-  @media (max-width: 1024px) {
-    font-size: 0.62rem;
+  font-family: 'FuturaPTLight', sans-serif;
+  @media (max-width: 599px) {
+    font-size: 0.75rem;
   }
 `;
 
@@ -86,18 +81,16 @@ export const FrontSide = () => {
         </div>
         <div css={nameStyle}>
           <span css={nameLetterStyle}>T</span>
-          <span css={nameLetterStyle}>O</span>
-          <span css={nameLetterStyle}>M</span>
-          <span css={nameLetterStyle}>O</span>
-          <span css={nameLetterStyle}>K</span>
-          <span css={nameLetterStyle}>I</span>
+          <span css={nameLetterStyle}>o</span>
+          <span css={nameLetterStyle}>m</span>
+          <span css={nameLetterStyle}>o</span>
+          <span css={nameLetterStyle}>k</span>
+          <span css={nameLetterStyle}>i</span>
           <span css={nameLetterStyle}>&nbsp;</span>
           <span css={nameLetterStyle}>S</span>
           <span css={nameLetterStyle}>A</span>
           <span css={nameLetterStyle}>I</span>
-          <span css={nameLetterStyle} className="adjust">
-            J
-          </span>
+          <span css={nameLetterStyle}>J</span>
           <span css={nameLetterStyle}>O</span>
         </div>
         <div css={infoContainerStyle()}>

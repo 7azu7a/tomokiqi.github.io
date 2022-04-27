@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'FuturaPT';
+  font-weight: normal;
+  font-style: normal;
+  src: url('./FuturaPTMedium.otf');
+}
+
+@font-face {
+  font-family: 'FuturaPTHeavy';
+  font-weight: normal;
+  font-style: normal;
+  src: url('./FuturaPTHeavy.otf');
+}
+
+@font-face {
+  font-family: 'FuturaPTLight';
+  font-weight: normal;
+  font-style: normal;
+  src: url('./FuturaPTLight.otf');
+}
