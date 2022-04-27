@@ -81,11 +81,11 @@ export const FrontSide = () => {
         </div>
         <div css={nameStyle}>
           <span css={nameLetterStyle}>T</span>
-          <span css={nameLetterStyle}>O</span>
-          <span css={nameLetterStyle}>M</span>
-          <span css={nameLetterStyle}>O</span>
-          <span css={nameLetterStyle}>K</span>
-          <span css={nameLetterStyle}>I</span>
+          <span css={nameLetterStyle}>o</span>
+          <span css={nameLetterStyle}>m</span>
+          <span css={nameLetterStyle}>o</span>
+          <span css={nameLetterStyle}>k</span>
+          <span css={nameLetterStyle}>i</span>
           <span css={nameLetterStyle}>&nbsp;</span>
           <span css={nameLetterStyle}>S</span>
           <span css={nameLetterStyle}>A</span>
