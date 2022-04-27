@@ -7,7 +7,7 @@ export const BackSide = () => {
   const contents = [
     { image: 'front-end.png', title: 'Front End Development' },
     { image: 'home-page.png', title: 'Home Page Creation' },
-    { image: 'web-design.png', title: 'Web UI Design' },
+    { image: 'ui-design.png', title: 'Web UI Design' },
   ];
 
   const containerStyle = css`
@@ -16,6 +16,7 @@ export const BackSide = () => {
     align-items: center;
     width: 100%;
     height: 100%;
+    text-shadow: 0rem 0rem 0.25rem #333;
   `;
 
   const slideshow = keyframes`
@@ -61,7 +62,7 @@ export const BackSide = () => {
     opacity: 0;
     animation: ${slideshow} ${DISPLAY_TIME * contents.length}s linear infinite;
     animation-delay: ${index * DISPLAY_TIME}s;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.25);
     border-radius: 1rem;
   `;
 
@@ -90,16 +91,16 @@ export const BackSide = () => {
       height: 1px;
       background-color: white;
       position: absolute;
+      box-shadow: 0rem 0rem 0.25rem #333;
     }
   `;
 
   const titleStyle = css`
     width: 70%;
     font-size: 1rem;
-    font-weight: 400;
     letter-spacing: 0.25rem;
     color: #fff;
-    @media (max-width: 767px) {
+    @media (max-width: 599px) {
       letter-spacing: 0.1rem;
     }
   `;
