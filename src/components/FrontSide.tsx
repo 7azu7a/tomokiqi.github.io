@@ -68,6 +68,7 @@ const subContentsStyle = css`
 
 const commentStyle = css`
   ${infoStyle}
+  color: #333;
   width: 80%;
 `;
 
@@ -102,7 +103,7 @@ export const FrontSide = () => {
       </div>
       <div css={subContentsStyle}>
         <div css={commentStyle}>
-          InstagramのDMにて、お仕事のご相談を承っております。（※完全紹介制）
+          InstagramのDMにて、お仕事のご依頼を承っております。（＊知人紹介制）
         </div>
         <div css={snsIconStyle}>
           <Link href="https://www.instagram.com/gram____tomo/">
