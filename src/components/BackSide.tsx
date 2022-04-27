@@ -5,9 +5,9 @@ import { useWindowSize } from 'react-use';
 
 export const BackSide = () => {
   const contents = [
-    { image: 'logo.jpg', title: 'Logo Design' },
     { image: 'front-end.png', title: 'Front End Development' },
     { image: 'home-page.png', title: 'Home Page Creation' },
+    { image: 'ui-design.png', title: 'Web UI Design' },
   ];
 
   const containerStyle = css`
@@ -61,7 +61,7 @@ export const BackSide = () => {
     opacity: 0;
     animation: ${slideshow} ${DISPLAY_TIME * contents.length}s linear infinite;
     animation-delay: ${index * DISPLAY_TIME}s;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.25);
     border-radius: 1rem;
   `;
 
