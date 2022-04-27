@@ -24,7 +24,6 @@ const mainContentsStyle = css`
   ${contentsStyle}
   flex-direction: column-reverse;
   justify-content: flex-end;
-  width: 100%;
 `;
 
 const nameStyle = css`
@@ -57,15 +56,19 @@ const infoStyle = css`
   color: #999;
   font-family: 'FuturaPTLight', sans-serif;
   @media (max-width: 599px) {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 `;
 
 const subContentsStyle = css`
   ${contentsStyle}
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
-  width: 100%;
+`;
+
+const commentStyle = css`
+  ${infoStyle}
+  width: 80%;
 `;
 
 const snsIconStyle = css`
@@ -98,6 +101,9 @@ export const FrontSide = () => {
         </div>
       </div>
       <div css={subContentsStyle}>
+        <div css={commentStyle}>
+          InstagramのDMにて、お仕事のご相談を承っております。（※完全紹介制）
+        </div>
         <div css={snsIconStyle}>
           <Link href="https://www.instagram.com/gram____tomo/">
             <a target="_blank">
