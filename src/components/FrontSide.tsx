@@ -57,7 +57,7 @@ const infoStyle = css`
   color: #999;
   font-family: 'FuturaPTLight', sans-serif;
   @media (max-width: 599px) {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 `;
 
@@ -90,9 +90,7 @@ export const FrontSide = () => {
           <span css={nameLetterStyle}>S</span>
           <span css={nameLetterStyle}>A</span>
           <span css={nameLetterStyle}>I</span>
-          <span css={nameLetterStyle} className="adjust">
-            J
-          </span>
+          <span css={nameLetterStyle}>J</span>
           <span css={nameLetterStyle}>O</span>
         </div>
         <div css={infoContainerStyle()}>
