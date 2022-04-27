@@ -54,7 +54,6 @@ export const BackSide = () => {
     justify-content: center;
     align-items: center;
     color: #fff;
-    text-shadow: 0px 0px 4px #333;
     position: absolute;
     z-index: 2;
     width: 100%;
@@ -91,18 +90,16 @@ export const BackSide = () => {
       height: 1px;
       background-color: white;
       position: absolute;
-      box-shadow: 0px 0px 4px #333;
     }
   `;
 
   const titleStyle = css`
     width: 70%;
     font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.236rem;
+    letter-spacing: 0.25rem;
     color: #fff;
-    @media (max-width: 767px) {
-      letter-spacing: 0.09rem;
+    @media (max-width: 599px) {
+      letter-spacing: 0.1rem;
     }
   `;
 

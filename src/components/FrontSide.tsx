@@ -6,11 +6,11 @@ import React from 'react';
 const containerStyle = css`
   display: flex;
   flex-direction: column;
-  padding: 15%;
+  padding: 10%;
   width: 100%;
   height: 100%;
-  @media (max-width: 767px) {
-    padding: 2.618rem;
+  @media (max-width: 599px) {
+    padding: 2rem;
   }
 `;
 
@@ -24,7 +24,6 @@ const mainContentsStyle = css`
   ${contentsStyle}
   flex-direction: column-reverse;
   justify-content: flex-end;
-  position: relative;
   width: 100%;
 `;
 
@@ -34,15 +33,15 @@ const nameStyle = css`
 `;
 
 const nameLetterStyle = css`
-  font-size: 2.618rem;
-  font-weight: 600;
-  line-height: 4.236rem;
-  @media (max-width: 767px) {
-    font-size: 1rem;
-    line-height: 1.618rem;
+  font-size: 2rem;
+  line-height: 4rem;
+  @media (max-width: 1024px) {
+    font-size: 1.5rem;
+    line-height: 3rem;
   }
-  &.adjust {
-    padding-left: 0.25rem;
+  @media (max-width: 599px) {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 `;
 
@@ -54,11 +53,11 @@ const infoContainerStyle = (justifyContent?: string) => css`
 
 const infoStyle = css`
   font-size: 1rem;
-  font-weight: 400;
   letter-spacing: 0.1rem;
   color: #999;
-  @media (max-width: 767px) {
-    font-size: 0.62rem;
+  font-family: 'FuturaPTLight', sans-serif;
+  @media (max-width: 599px) {
+    font-size: 0.7rem;
   }
 `;
 
