@@ -16,6 +16,7 @@ export const BackSide = () => {
     align-items: center;
     width: 100%;
     height: 100%;
+    text-shadow: 0rem 0rem 0.25rem #333;
   `;
 
   const slideshow = keyframes`
@@ -90,6 +91,7 @@ export const BackSide = () => {
       height: 1px;
       background-color: white;
       position: absolute;
+      box-shadow: 0rem 0rem 0.25rem #333;
     }
   `;
 
