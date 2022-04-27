@@ -15,7 +15,7 @@ const Index = () => {
     transition: transform 2s ease-in-out;
     box-shadow: 0.25rem 0.25rem 0.5rem #333;
     border-radius: 1rem;
-    @media (max-width: 767px) {
+    @media (max-width: 599px) {
       width: 90vw;
       height: calc(90vw / 1.618);
     }
@@ -80,7 +80,7 @@ const Index = () => {
   return (
     <>
       <Seo
-        pageTitle="Tomoki Saijo | Portfolio"
+        pageTitle="Tomoki Saijo ｜ Portfolio"
         pageDescription="紹介制でSTUDIOやJavaScriptによるホームページ制作やWebアプリ開発に協力している西條友喜のポートフォリオです。普段はフロントエンドエンジニアとして活動していますが、WebデザインやCSSアニメーションなどにも興味があります。"
         pagePath="https://portfolio.tomokiqi.com/"
         pageImg="https://portfolio.tomokiqi.com/logo.jpg"
