@@ -58,6 +58,7 @@ const infoStyle = css`
   @media (max-width: 599px) {
     font-size: 0.7rem;
   }
+  font-family: 'FuturaPTLight';
 `;
 
 const subContentsStyle = css`
